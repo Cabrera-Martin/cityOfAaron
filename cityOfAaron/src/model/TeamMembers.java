@@ -19,7 +19,7 @@ public enum TeamMembers
 private String name;
 private String title;
         
-TeamMembers(String_name, String_title)
+TeamMembers(String _name, String _title)
 {
 name=_name;
 title=_title;
