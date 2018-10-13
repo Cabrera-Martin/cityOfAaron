@@ -15,10 +15,11 @@ public class Game implements Serializable{
     private Player thePlayer;
     
     public Game(){}
-    public String setPlayer()
+    public Player setPlayer()
     {
      return thePlayer;
     }
-        public void getPlayer(player_thePlayer){
-        thePlayer=_thePlayer;
+        public void getPlayer(Player _thePlayer){
+        thePlayer= _thePlayer;
         }
+}
