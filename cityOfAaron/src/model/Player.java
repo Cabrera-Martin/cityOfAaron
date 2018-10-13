@@ -20,7 +20,7 @@ public class Player implements Serializable{
     {
      return name;
     }
-        public void setName(string_name){
+        public void setName(String _name){
     name=_name;
     
     }
