@@ -19,17 +19,17 @@ public enum TeamMembers
 private String name;
 private String title;
         
-TeamMembers(String _name, String _title)
-{
-name=_name;
-title=_title;
+    TeamMembers(String _name, String _title)
+    {
+    name= _name;
+    title= _title;
 }
-public String getName()
-{
-return name;
+    public String getName()
+    {
+    return name;
 }
-public String getTitle()
-{
-return title;
-}
+    public String getTitle()
+    {
+    return title;
+  }
 }
