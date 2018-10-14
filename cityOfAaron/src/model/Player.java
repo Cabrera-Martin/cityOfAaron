@@ -21,7 +21,7 @@ public class Player implements Serializable{
      return name;
     }
         public void setName(String _name){
-    name=_name;
+    name= _name;
     
     }
     
