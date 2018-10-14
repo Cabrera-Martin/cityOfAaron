@@ -1,10 +1,13 @@
 /*
  * The main() class file for the cityOfAaron project
- * cIT-260
+ * CIT-260
  * Fall 2018
  * Team members: Jake Davis, Martin Cabrera
  */
 package cityofaaron;
+
+import model.*;
+
 
 /**
  *
@@ -17,6 +20,7 @@ public class CityOfAaron {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        System.out.println(TeamMembers.Dasammy.getName()+"-"+TeamMembers.Dasammy.getTitle());
     }
     
 }
