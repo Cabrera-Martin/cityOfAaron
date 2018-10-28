@@ -58,5 +58,39 @@ public class CropControl
         //return acresOwned
         return owned;
     }
+ /**
+* The feedThePeople method
+* Purpose: To feed the people
+* @param wheatInStore
+* @param value
+* @param cropData object
+* @return the number of total wheatForFood after saving
+* Pre-conditions: value given from player must be positive
+* and wheatInStorage must be <= than the value given from the player
+*/
+
+   public static int wheatForFood(int wheatInStore, int value, CropData cropData)
+{
+    //if value < 0, return -1
+    
+    if(value < 0)
+        return -1;{
+}
+    //if wheatInStorage  < value,  return -1
+    if (wheatInStore < value){
+        return -1;
+    }
+    
+    //wheatForFood = value - wheatInStorage
+    int wheatForFood;
+    wheatForFood = wheatInStore - value;
+    
+    //return wheatForFood
+    return wheatForFood;
+
+
+}
+
+   
 }
 
