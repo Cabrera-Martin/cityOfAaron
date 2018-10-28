@@ -54,6 +54,35 @@ public class CropControl
         //return acresOwned
         return owned;
     }
+//The feedThePeople method
+// Purpose: To feed the people
+// @param wheatInStore
+//@param value
+//@param cropData object
+//@return the number of total wheatForFood after saving
+//Pre-conditions: value given from player must be positive
+//and wheatInStorage must be <= than the value given from the player
+   public static int wheatForFood(int wheatInStore, int value, CropData cropData)
+{
+    //if value < 0, return -1
+    
+    if(value < 0)
+        return -1;{
+}
+    //if wheatInStorage  < value,  return -1
+    if (wheatInStore < value){
+        return -1;
+    }
+    
+    //wheatForFood = value - wheatInStorage
+    int wheatForFood;
+    wheatForFood = wheatInStore - value;
+    
+    //return wheatForFood
+    return wheatForFood;
+
+
+}
 // The plantCrop method
 //Purpose: To plant crops land
 //@param the amount of people in the city
@@ -93,8 +122,9 @@ public class CropControl
         int wheat = cropData.getwheatInStore();
         wheat-= (acresToPlant/2);
         cropData.setwheatInStore(wheat);
-        //return acresPlanted and wheatInStore 
-      System.out.println("Acres Planted = " + planted + "What in Store = " + wheat);
+         //return acresPlanted and wheatInStore
+      System.out.println("Acres Planted = " + planted);
+      System.out.println("What in Store = " + wheat);
          return wheat;
     }
 //The seOffering method
@@ -105,10 +135,8 @@ public class CropControl
     public static int setOffering(int percentageToPay)
     {
 //if percentageToPay < 0 and > 1, return -1
-        if(percentageToPay < 0 && percentageToPay > 1)
+        if(percentageToPay < 0 || percentageToPay > 100)
             return -1;
-//if percentageToPay > 0 and < 1, return the percentageToPay
-        if(percentageToPay > 0 && percentageToPay < 1)
-            return percentageToPay;
+        else return percentageToPay;
     }
 }

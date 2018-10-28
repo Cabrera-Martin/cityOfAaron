@@ -137,4 +137,244 @@ public class CropControlTest {
         int result = CropControl.buyLand(landCost, acresToBuy, cropData);
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test of wheatForFood method, of class CropControl.
+     * Test Case 1
+     */
+    @Test
+    public void testWheatForFoodCase1() {
+        System.out.println("wheatForFood - Test Case 1");
+        CropData cropData = new CropData();
+        int wheatInStore = 4000;
+        int value = 2000;
+        int expResult = 2000;
+        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        assertEquals(expResult, result);
+        
+    }
+  /**
+     * Test of wheatForFood method, of class CropControl.
+     * Test Case 2
+     */
+    @Test
+    public void testWheatForFoodCase2() {
+        System.out.println("wheatForFood - Test Case 2");
+        CropData cropData = new CropData();
+        int wheatInStore = 200;
+        int value = 150;
+        int expResult = 50;
+        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        assertEquals(expResult, result);
+        
+    }
+  /**
+     * Test of wheatForFood method, of class CropControl.
+     * Test Case 3
+     */
+    @Test
+    public void testWheatForFoodCase3() {
+        System.out.println("wheatForFood - Test Case 3");
+        CropData cropData = new CropData();
+        int wheatInStore = 0;
+        int value = 500;
+        int expResult = -1;
+        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        assertEquals(expResult, result);
+        
+    }
+     /**
+     * Test of wheatForFood method, of class CropControl.
+     * Test Case 4
+     */
+    @Test
+    public void testWheatForFoodCase4() {
+        System.out.println("wheatForFood - Test Case 4");
+        CropData cropData = new CropData();
+        int wheatInStore = 3000;
+        int value = -500;
+        int expResult = -1;
+        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        assertEquals(expResult, result);
+        
+    }
+      /**
+     * Test of wheatForFood method, of class CropControl.
+     * Test Case 5
+     */
+    @Test
+    public void testWheatForFoodCase5() {
+        System.out.println("wheatForFood - Test Case 5");
+        CropData cropData = new CropData();
+        int wheatInStore = 300;
+        int value = 300;
+        int expResult = 0;
+        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        assertEquals(expResult, result);
+        
+    }
+
+    /**
+     * Test of plantCrops method, of class CropControl.
+     * Test Case 1
+     */
+    @Test
+    public void testPlantCropsCase1() {
+        System.out.println("plantCrops + Test Case 1");
+        CropData cropData = new CropData();
+        int acresToPlant = 100;
+        cropData.setacresOwned(1000);
+        cropData.setpopulation(500);
+        cropData.setwheatInStore(300);
+                        
+        int expResult = 250;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);       
+    }
+    
+/**
+     * Test of plantCrops method, of class CropControl.
+     * Test Case 2
+     */
+    @Test
+    public void testPlantCropsCase2() {
+        System.out.println("plantCrops + Test Case 2");
+        CropData cropData = new CropData();
+        int acresToPlant = 800;
+        cropData.setacresOwned(1000);
+        cropData.setpopulation(500);
+        cropData.setwheatInStore(300);
+                        
+        int expResult = -1;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);       
+    }
+    /**
+     * Test of plantCrops method, of class CropControl.
+     * Test Case 3
+     */
+    @Test
+    public void testPlantCropsCase3() {
+        System.out.println("plantCrops + Test Case 3");
+        CropData cropData = new CropData();
+        int acresToPlant = 100;
+        cropData.setacresOwned(1000);
+        cropData.setpopulation(3);
+        cropData.setwheatInStore(300);
+                        
+        int expResult = -1;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);       
+    }
+    /**
+     * Test of plantCrops method, of class CropControl.
+     * Test Case 4
+     */
+    @Test
+    public void testPlantCropsCase4() {
+        System.out.println("plantCrops + Test Case 4");
+        CropData cropData = new CropData();
+        int acresToPlant = 100;
+        cropData.setacresOwned(50);
+        cropData.setpopulation(500);
+        cropData.setwheatInStore(300);
+                        
+        int expResult = -1;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);       
+    }
+    /**
+     * Test of plantCrops method, of class CropControl.
+     * Test Case 5
+     */
+    @Test
+    public void testPlantCropsCase5() {
+        System.out.println("plantCrops + Test Case 5");
+        CropData cropData = new CropData();
+        int acresToPlant = 1000;
+        cropData.setacresOwned(1000);
+        cropData.setpopulation(500);
+        cropData.setwheatInStore(500);
+                        
+        int expResult = 0;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);       
+    }
+    /**
+     * Test of plantCrops method, of class CropControl.
+     * Test Case 6
+     */
+    @Test
+    public void testPlantCropsCase6() {
+        System.out.println("plantCrops + Test Case 6");
+        CropData cropData = new CropData();
+        int acresToPlant = 0;
+        cropData.setacresOwned(1000);
+        cropData.setpopulation(500);
+        cropData.setwheatInStore(300);
+                        
+        int expResult = 300;
+        int result = CropControl.plantCrops(acresToPlant, cropData);
+        assertEquals(expResult, result);       
+    }
+    /**
+     * Test of setOffering method, of class CropControl.
+     * Test Case 1
+     */
+    @Test
+    public void testSetOfferingCase1() {
+        System.out.println("setOffering + Test Case 1");
+        int percentageToPay = 10;
+        int expResult = 10;
+        int result = CropControl.setOffering(percentageToPay);
+        assertEquals(expResult, result);        
+    }
+    /**
+     * Test of setOffering method, of class CropControl.
+     * Test Case 2
+     */
+    @Test
+    public void testSetOfferingCase2() {
+        System.out.println("setOffering + Test Case 2");
+        int percentageToPay = -10;
+        int expResult = -1;
+        int result = CropControl.setOffering(percentageToPay);
+        assertEquals(expResult, result);        
+    }
+    /**
+     * Test of setOffering method, of class CropControl.
+     * Test Case 3
+     */
+    @Test
+    public void testSetOfferingCase3() {
+        System.out.println("setOffering + Test Case 3");
+        int percentageToPay = 120;
+        int expResult = -1;
+        int result = CropControl.setOffering(percentageToPay);
+        assertEquals(expResult, result);        
+    }
+    /**
+     * Test of setOffering method, of class CropControl.
+     * Test Case 4
+     */
+    @Test
+    public void testSetOfferingCase4() {
+        System.out.println("setOffering + Test Case 4");
+        int percentageToPay = 0;
+        int expResult = 0;
+        int result = CropControl.setOffering(percentageToPay);
+        assertEquals(expResult, result);        
+    }
+    /**
+     * Test of setOffering method, of class CropControl.
+     * Test Case 5
+     */
+    @Test
+    public void testSetOfferingCase5() {
+        System.out.println("setOffering + Test Case 5");
+        int percentageToPay = 100;
+        int expResult = 100;
+        int result = CropControl.setOffering(percentageToPay);
+        assertEquals(expResult, result);        
+    }
 }
