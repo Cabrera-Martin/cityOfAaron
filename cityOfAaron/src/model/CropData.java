@@ -31,7 +31,7 @@ public class CropData implements Serializable {
     public int getyear(){
         return year;
     }
-    public void setNumber(int _year) {
+    public void setyear(int _year) {
         year= _year;
     }
     

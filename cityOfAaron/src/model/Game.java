@@ -13,6 +13,7 @@ package model;
 import java.io.Serializable;
 public class Game implements Serializable{
     private Player thePlayer;
+    private CropData cropData;
     
     public Game(){}
     public Player setPlayer()
@@ -22,4 +23,12 @@ public class Game implements Serializable{
         public void getPlayer(Player _thePlayer){
         thePlayer= _thePlayer;
         }
+    public CropData setcropData()
+    {
+     return cropData;
+    }
+        public void getCropData(CropData _cropData){
+        cropData= _cropData;
+        }
+        
 }

@@ -8,17 +8,25 @@
  */
 package cityofaaron;
 
-//import model.*;
+import model.*;
 import viewLayer.*;
+
 
 public class CityOfAaron {
 
+    private static Game theGame = null;
+    public Game setGame()
+    {
+     return theGame;
+    }
+        public void getGame(Game _theGame){
+        theGame = _theGame;
+        }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
            MainMenuView mmv = new MainMenuView();
            mmv.displayMenuView();
-    }
-    
+    }    
 }

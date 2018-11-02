@@ -7,6 +7,8 @@
 package viewLayer;
 
 import java.util.Scanner;
+import cityofaaron.CityOfAaron;
+import control.GameControl;
 
 public class MainMenuView {
     
@@ -106,7 +108,29 @@ public class MainMenuView {
         // ===================================     
         public void startNewGame()
         {
-        System.out.println("\nPlay along");
+        // Display the Banner Page.
+            System.out.println(
+            "\n" +
+                   "\nWelcome to the City of Aaron.\n"+
+                   "A small city inside of the realm of Azeroth.\n" +
+                   "You have been called to serve as a full time King of the Aaronites.\n" +
+                   "You are responsible of feeding the people, deciding how much to plant, \n" +
+                   "and how much to set apart.\n" +
+                   "You will also be in charge of buying and selling land.\n" +
+                   "You will be held responsible for anyones death and put into the stockades\n" +
+                   "That will remove you from office."
+            );
+            
+        // Prompt for and get the user’s name.
+        String name;
+        System.out.println("Type your name here: ");
+        name = keyboard.next();
+        
+        // Call the createNewGame() method in the GameControl class
+        GameControl.createNewGame(name);
+        // Display a welcome message
+        System.out.println("Welcome" + name + ", don't kill anyone!!!");
+        // Display the Game menu
         }
         // The startSavedGame method
         // Purpose: start a saved game
@@ -137,5 +161,3 @@ public class MainMenuView {
         }
         
 }
-    
-    
