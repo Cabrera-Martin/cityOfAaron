@@ -12,6 +12,8 @@ public class MainMenuView {
     
     private String theMenu;
     private int max;
+    int userInput = 0;
+    final int MAX = 5;
     Scanner keyboard = new Scanner(System.in);
     
     // The displayMenuView method
@@ -59,7 +61,18 @@ public class MainMenuView {
     // =================================== 
     public int getMenuOption()
     {
-    
+        do
+        {
+         // get user input from the keyboard
+         userInput = keyboard.nextInt();
+         // if it is not a valid value, output an error message
+         if(userInput < 1 || userInput > MAX)
+           System.out.println("Error: you must select 1, 2, 3, 4 or 5");
+        // loop back to the top of the loop if input was not valid
+        // end loop
+        } while (userInput < 1 || userInput > MAX);   
+
+        return userInput;
     }
     // The doAction method
     // Purpose: performs the selected action
@@ -122,6 +135,7 @@ public class MainMenuView {
         {
         System.out.println("\nList of your saved games");
         }
+        
 }
     
     
