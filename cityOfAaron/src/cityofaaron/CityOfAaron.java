@@ -3,24 +3,22 @@
  * CIT-260
  * Fall 2018
  * Team members: Jake Davis, Martin Cabrera
+ * Team code-name: E=m*Math.pow(c,2)
+ * Date modified: November 1st, 2018
  */
 package cityofaaron;
 
-import model.*;
+//import model.*;
+import viewLayer.*;
 
-
-/**
- *
- * @author Martin
- */
 public class CityOfAaron {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println(TeamMembers.Dasammy.getName()+"-"+TeamMembers.Dasammy.getTitle());
+           MainMenuView mmv = new MainMenuView();
+           mmv.displayMenuView();
     }
     
 }
