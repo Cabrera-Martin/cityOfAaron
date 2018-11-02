@@ -129,7 +129,7 @@ public class MainMenuView {
         // Call the createNewGame() method in the GameControl class
         GameControl.createNewGame(name);
         // Display a welcome message
-        System.out.println("Welcome" + name + ", don't kill anyone!!!");
+        System.out.println("Welcome " + name + ", don't kill anyone!!!");
         // Display the Game menu
         }
         // The startSavedGame method

@@ -20,7 +20,7 @@ public class GameControl {
         player.setName(_name);
         
         // save reference to the player object in the game
-        game.setPlayer();
+        game.setPlayer(player);
         // create and initialize a CropData object
         // save a reference to it in the Game object
         CropData cropData = new CropData();
@@ -38,7 +38,7 @@ public class GameControl {
         game.setcropData(); 
         
         // when all is done, save a reference to the Game object
-        CityOfAaron.setGame(Game);   
+        CityOfAaron.setGame(game);   
         
     }
 }

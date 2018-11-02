@@ -23,6 +23,9 @@ public class Game implements Serializable{
         public void getPlayer(Player _thePlayer){
         thePlayer= _thePlayer;
         }
+        public void setPlayer(Player player) {
+        
+    }
     public CropData setcropData()
     {
      return cropData;
@@ -30,5 +33,7 @@ public class Game implements Serializable{
         public void getCropData(CropData _cropData){
         cropData= _cropData;
         }
+
+    
         
 }

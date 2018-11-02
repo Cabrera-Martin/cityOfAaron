@@ -15,7 +15,12 @@ import viewLayer.*;
 public class CityOfAaron {
 
     private static Game theGame = null;
-    public Game setGame()
+
+    public static void setGame(Game game) {
+       
+    }
+   
+    public Game setgame()
     {
      return theGame;
     }
