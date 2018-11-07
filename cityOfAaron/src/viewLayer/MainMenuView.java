@@ -148,7 +148,7 @@ public class MainMenuView {
         // ===================================     
         public void displayHelpMenuView()
         {
-        System.out.println("\nHere is what you need to know");
+        System.out.println("\nHere is what you need to know");        
         }
         // The displaySaveGameView() method
         // Purpose: show saved games
