@@ -32,4 +32,9 @@ public class CropView {
     
     System.out.format("You own %d acres of land now.",cropData.getacresOwned());
     }   
+    public static void runCropView(){
+        
+    buyLandView();
+       
+    }
 }
