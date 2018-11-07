@@ -26,7 +26,7 @@ public class MainMenuView {
     // ========================================================= 
     
     public void displayMenuView(){
-        int menuOption;
+        int menuOption = 0;
         do
         {
     // Display the menu
@@ -118,7 +118,7 @@ public class MainMenuView {
                    "and how much to set apart.\n" +
                    "You will also be in charge of buying and selling land.\n" +
                    "You will be held responsible for anyones death and put into the stockades\n" +
-                   "That will remove you from office."
+                   "That will remove 0you from office."
             );
             
         // Prompt for and get the user’s name.
