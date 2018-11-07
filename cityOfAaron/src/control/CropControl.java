@@ -100,8 +100,8 @@ public class CropControl
         return -1;
     }
     //wheatInStore = wheatInStore - wheatForFood
-    int wheat = cropData.getwheatInStore();
-        wheatInStore = wheatInStore - wheatForFood;
+        int wheat = cropData.getwheatInStore();
+        wheat -= wheatForFood;
         cropData.setwheatInStore(wheatInStore);
         cropData.setwheatForFood(wheatForFood);
     
