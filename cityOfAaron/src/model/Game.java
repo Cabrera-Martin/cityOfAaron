@@ -6,10 +6,6 @@
  */
 package model;
 
-/**
- *
- * @author Martin
- */
 import java.io.Serializable;
 public class Game implements Serializable{
     private Player thePlayer;
@@ -33,6 +29,10 @@ public class Game implements Serializable{
         public void getCropData(CropData _cropData){
         cropData= _cropData;
         }
+
+    public CropData getCropData() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
     
         

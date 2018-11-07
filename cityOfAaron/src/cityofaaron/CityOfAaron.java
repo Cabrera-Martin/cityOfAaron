@@ -19,6 +19,10 @@ public class CityOfAaron {
     public static void setGame(Game game) {
        
     }
+
+    public static Game getGame() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
    
     public Game setgame()
     {
