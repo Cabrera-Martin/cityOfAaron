@@ -28,8 +28,8 @@ public class CityOfAaron {
     {
      return theGame;
     }
-        public void getGame(Game _theGame){
-        theGame = _theGame;
+    public void getGame(Game _theGame){
+    theGame = _theGame;
         }
     /**
      * @param args the command line arguments

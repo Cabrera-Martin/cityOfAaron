@@ -31,10 +31,54 @@ public class CropView {
     CropControl.buyLand(price, toBuy, cropData);
     
     System.out.format("You own %d acres of land now.",cropData.getacresOwned());
-    }   
+    }
+    public static void sellLandView(){
+      
+    int price = CropControl.calcLandCost();
+    
+    System.out.format("Land is being bought for %d bushels per acre.%n",price);
+    System.out.print("/nHow much land do you wish to sell?");
+    
+    int toSell;
+    toSell = keyboard.nextInt();
+    
+    CropControl.sellLand(price, toSell, cropData);
+    
+    System.out.format("You own %d acres of land now.",cropData.getacresOwned());
+    }
+    
+    public static void plantCropsView(){
+      
+    System.out.print("/nHow many acres of land do you want to plant??");
+    
+    int toPlant;
+    toPlant = keyboard.nextInt();
+    
+    CropControl.plantCrops(toPlant, cropData);
+    
+    System.out.format("You have planted %d acres of land now.",cropData.getacresPlanted());
+    System.out.format("You have %d of wheat left in Storage.",cropData.getwheatInStore());
+    }
+    public static void feedPeopleView(){
+      
+    System.out.print("/nHow many bushels of wheat do you want to feed the people?");
+    
+    int toFeed;
+    toFeed = keyboard.nextInt();
+    
+    CropControl.wheatForFood(int wheatInStore, int toFeed, CropData cropData);
+    
+    System.out.format("You have planted %d acres of land now.",cropData.getacresPlanted());
+    System.out.format("You have %d of wheat left in Storage.",cropData.getwheatInStore());
+    }
+         
     public static void runCropView(){
         
     buyLandView();
-       
+    sellLandView();
+    feedPeopleView();
+    plantCropsView();
+    displayCropsReportView();
+    
     }
 }

@@ -54,6 +54,33 @@ public class CropControl
         //return acresOwned
         return owned;
     }
+    //The sellLand method
+    //Purpose: To sell land
+    //@param the price of land
+    //@param the number of acres to sell   
+    //@param a reference to a CropData object
+    //@ return the number of total acres after the sale
+    //Pre-conditions: acres to sell must be positive
+    //and <= than acres owned
+    public static int sellLand(int landCost, int acresToSell, CropData cropData)
+    {
+        //if acresToBuy < 0, return -1
+        if(acresToSell < 0)
+            return -1;
+        //if acresToSell > acresOwned, return -1
+        int owned = cropData.getacresOwned();
+        if(acresToSell > owned)
+             return -1;
+        //acresOwned = acresOwned - acresToSell
+        owned -= acresToSell;
+        cropData.setacresOwned(owned);
+        //wheatInStore = wheatInStore + acresToSell * landCost
+        int wheat = cropData.getwheatInStore();
+        wheat+= (acresToSell * landCost);
+        cropData.setwheatInStore(wheat);
+        //return acresOwned
+        return owned;
+    }
 //The feedThePeople method
 // Purpose: To feed the people
 // @param wheatInStore
@@ -62,25 +89,24 @@ public class CropControl
 //@return the number of total wheatForFood after saving
 //Pre-conditions: value given from player must be positive
 //and wheatInStorage must be <= than the value given from the player
-   public static int wheatForFood(int wheatInStore, int value, CropData cropData)
+   public static int wheatForFood(int wheatInStore, int wheatForFood, CropData cropData)
 {
-    //if value < 0, return -1
-    
-    if(value < 0)
-        return -1;{
+    //if wheatForFood < 0, return -1
+    if(wheatForFood < 0){
+        return -1;
 }
-    //if wheatInStorage  < value,  return -1
-    if (wheatInStore < value){
+    //if wheatInStorage  < wheatForFood,  return -1
+    if (wheatInStore < wheatForFood){
         return -1;
     }
-    
-    //wheatForFood = value - wheatInStorage
-    int wheatForFood;
-    wheatForFood = wheatInStore - value;
+    //wheatInStore = wheatInStore - wheatForFood
+    int wheat = cropData.getwheatInStore();
+        wheatInStore = wheatInStore - wheatForFood;
+        cropData.setwheatInStore(wheatInStore);
+        cropData.setwheatForFood(wheatForFood);
     
     //return wheatForFood
     return wheatForFood;
-
 
 }
 // The plantCrop method
