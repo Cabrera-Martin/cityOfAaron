@@ -147,9 +147,9 @@ public class CropControlTest {
         System.out.println("wheatForFood - Test Case 1");
         CropData cropData = new CropData();
         int wheatInStore = 4000;
-        int value = 2000;
+        int wheatForFood = 2000;
         int expResult = 2000;
-        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
         assertEquals(expResult, result);
         
     }
@@ -162,9 +162,9 @@ public class CropControlTest {
         System.out.println("wheatForFood - Test Case 2");
         CropData cropData = new CropData();
         int wheatInStore = 200;
-        int value = 150;
-        int expResult = 50;
-        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        int wheatForFood = 150;
+        int expResult = 150;
+        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
         assertEquals(expResult, result);
         
     }
@@ -177,9 +177,9 @@ public class CropControlTest {
         System.out.println("wheatForFood - Test Case 3");
         CropData cropData = new CropData();
         int wheatInStore = 0;
-        int value = 500;
+        int wheatForFood = 500;
         int expResult = -1;
-        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
         assertEquals(expResult, result);
         
     }
@@ -192,9 +192,9 @@ public class CropControlTest {
         System.out.println("wheatForFood - Test Case 4");
         CropData cropData = new CropData();
         int wheatInStore = 3000;
-        int value = -500;
+        int wheatForFood = -500;
         int expResult = -1;
-        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
         assertEquals(expResult, result);
         
     }
@@ -207,9 +207,9 @@ public class CropControlTest {
         System.out.println("wheatForFood - Test Case 5");
         CropData cropData = new CropData();
         int wheatInStore = 300;
-        int value = 300;
-        int expResult = 0;
-        int result = CropControl.wheatForFood(wheatInStore, value, cropData);
+        int wheatForFood = 300;
+        int expResult = 300;
+        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
         assertEquals(expResult, result);
         
     }
@@ -377,4 +377,24 @@ public class CropControlTest {
         int result = CropControl.setOffering(percentageToPay);
         assertEquals(expResult, result);        
     }
+
+   
+
+    /**
+     * Test of wheatForFood method, of class CropControl.
+     * Test Case 1 redo
+     */
+    @Test
+    public void testWheatForFoodcase1redo() {
+        System.out.println("wheatForFood + Test Case 1 redo");
+        CropData cropData = new CropData();
+        int wheatInStore = 4000;
+        int wheatForFood = 2000;
+        int expResult = 2000;
+        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
+        assertEquals(expResult, result);
+        
+    }
+
+   
 }
