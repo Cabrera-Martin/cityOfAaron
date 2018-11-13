@@ -15,32 +15,17 @@ import control.GameControl;
  * @author Jake Davis
  */
 public class ListMenuView {
-    
-    
-    
+       
     //The GameMenuView constructor
     //Purpose: activates the list menu
     //Parameters: none
     //returns: none
     // ================================
-    private String theMenu;
+    private String listMenu;
     private int max;
     int userInput = 0;
     final int MAX = 5;
     Scanner keyboard = new Scanner(System.in);
-    
-    public void displayMenuView(){
-        int menuOption;
-        do
-        {
-    // Display the menu
-            System.out.println(theMenu);            
-    // Prompt the user and has the user input a number
-            menuOption = getMenuOption();
-    // Perform the desired action
-            doAction(menuOption);
-    }while(menuOption!= max);
-    }
     // The MainMenuView constructor
     // Purpose: Initialize the menu data
     // Parameters: none
@@ -48,9 +33,9 @@ public class ListMenuView {
     // ===================================
     public ListMenuView()
     {
-        theMenu = "\n" +
+        listMenu = "\n" +
                    "**********************************\n" +
-                   "*            List Menu            *\n" +
+                   "*  CITY OF AARON: LIST MENU       *\n" +
                    "**********************************\n" +
                    " 1 - List of Animals in storehouse\n" +
                    " 2 - List the tools in storehouse\n" +
@@ -59,6 +44,23 @@ public class ListMenuView {
                    " 5 - Return to Game Menu\n";
         
         max = 5;
+    }
+        // The displayListMenuView method
+        // Purpose: show List
+        // Parameters: none
+        // Returns: none
+        // ===================================        
+    public void displayListMenuView(){
+        int menuOption;
+        do
+        {
+    // Display the menu
+            System.out.println(listMenu);            
+    // Prompt the user and has the user input a number
+            menuOption = getMenuOption();
+    // Perform the desired action
+            doAction(menuOption);
+    }while(menuOption!= max);
     }
     public int getMenuOption()
     {
@@ -91,7 +93,7 @@ public class ListMenuView {
                 listTools();
                 break;
             case 3: // List Pervisions in storehouse
-                listPervisions();
+                listProvisions();
                 break;
             case 4: // List team
                 listTeam();
@@ -100,7 +102,6 @@ public class ListMenuView {
                 return;
         }
 }
-     
         public void listAnimals()
         {
         
@@ -112,16 +113,15 @@ public class ListMenuView {
         System.out.println("listTools option selected");
         }
         
-        public void listPervisions()
+        public void listProvisions()
         {
-        System.out.println("listPervisions option selected");
+        System.out.println("listProvisions option selected");
         }
              
         public void listTeam()
         {
         System.out.println("listTeam option selected");
-        }
-            
+        }       
         
         
 }

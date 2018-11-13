@@ -129,9 +129,13 @@ public class MainMenuView {
         // Call the createNewGame() method in the GameControl class
         GameControl.createNewGame(name);
         // Display a welcome message
-        System.out.println("Welcome " + name + ", don't kill anyone!!!");
+        System.out.println("Welcome " + name + ", don't kill anyone!!!");             
         // Display the Game menu
-        }
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayGameMenuView();
+        }        
+        
+         
         // The startSavedGame method
         // Purpose: start a saved game
         // Parameters: none
@@ -148,6 +152,9 @@ public class MainMenuView {
         // ===================================     
         public void displayHelpMenuView()
         {
+            HelpMenuView hmv = new HelpMenuView();
+            hmv.displayHelpMenuView();
+
         System.out.println("\nHere is what you need to know");        
         }
         // The displaySaveGameView() method

@@ -94,7 +94,7 @@ public class CropControl
     //if wheatForFood < 0, return -1
     if(wheatForFood < 0){
         return -1;
-}
+    }
     //if wheatInStorage  < wheatForFood,  return -1
     if (wheatInStore < wheatForFood){
         return -1;

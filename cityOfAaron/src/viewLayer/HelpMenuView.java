@@ -24,7 +24,7 @@ public class HelpMenuView {
     {
         helpMenu = "\n" +
                    "**********************************\n" +
-                   "* CITY OF AARON: GAME MENU  *\n" +
+                   "* CITY OF AARON: HELP MENU  *\n" +
                    "**********************************\n" +
                    " 1 - View Goals\n" +
                    " 2 - View Map Help\n" +
@@ -34,6 +34,11 @@ public class HelpMenuView {
         
         max = 5;
     }
+        // The displayHelpMenuView method
+        // Purpose: show Help
+        // Parameters: none
+        // Returns: none
+        // ===================================
     public void displayHelpMenuView(){
         int menuOption;
         do

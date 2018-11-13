@@ -21,7 +21,12 @@ public class GameMenuView {
     Scanner keyboard = new Scanner(System.in);
     private Game theGame;
     
-    public GameMenuView()
+    // The MainMenuView constructor
+    // Purpose: Initialize the menu data
+    // Parameters: none
+    // Returns: none
+    // ===================================    
+        public GameMenuView()
     {
         gameMenu = "\n" +
                    "**********************************\n" +
@@ -35,16 +40,26 @@ public class GameMenuView {
         
         max = 5;
     }    
-    // The displayHelpMenuView method
-        // Purpose: show Help
+    
+        // The displayGameMenuView method
+        // Purpose: show Game
         // Parameters: none
         // Returns: none
         // ===================================     
         public void displayGameMenuView()
         {
-        System.out.println("\nHere is what you need to know");        
-        }
-        public int getMenuOption()
+        int menuOption;
+        do
+        {
+    // Display the menu
+            System.out.println(gameMenu);            
+    // Prompt the user and has the user input a number
+            menuOption = getMenuOption();
+    // Perform the desired action
+            doAction(menuOption);
+    }while(menuOption!= max);
+    }
+    public int getMenuOption()
     {
         do
         {
@@ -59,7 +74,7 @@ public class GameMenuView {
 
         return userInput;
     }
-        // The doAction method
+    // The doAction method
     // Purpose: performs the selected action
     // Parameters: none
     // Returns: none
@@ -92,8 +107,10 @@ public class GameMenuView {
         }
  public void viewList()
         {
-        // Display the Map.
+        // Display the ListMenuView
             System.out.println("Here is the List");
+            ListMenuView gmv = new ListMenuView();
+            gmv.displayListMenuView();
         }
  public void moveToNewLocation()
         {

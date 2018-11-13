@@ -149,9 +149,9 @@ public class CropControlTest {
         int wheatInStore = 4000;
         int wheatForFood = 2000;
         int expResult = 2000;
-        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
-        assertEquals(expResult, result);
-        
+        int result = CropControl.wheatForFood(wheatInStore, 
+                wheatForFood, cropData);
+        assertEquals(expResult, result);        
     }
   /**
      * Test of wheatForFood method, of class CropControl.
@@ -164,9 +164,9 @@ public class CropControlTest {
         int wheatInStore = 200;
         int wheatForFood = 150;
         int expResult = 150;
-        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
+        int result = CropControl.wheatForFood(wheatInStore,
+                wheatForFood, cropData);
         assertEquals(expResult, result);
-        
     }
   /**
      * Test of wheatForFood method, of class CropControl.
@@ -179,9 +179,9 @@ public class CropControlTest {
         int wheatInStore = 0;
         int wheatForFood = 500;
         int expResult = -1;
-        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
-        assertEquals(expResult, result);
-        
+        int result = CropControl.wheatForFood(wheatInStore,
+                wheatForFood, cropData);
+        assertEquals(expResult, result);       
     }
      /**
      * Test of wheatForFood method, of class CropControl.
@@ -194,9 +194,9 @@ public class CropControlTest {
         int wheatInStore = 3000;
         int wheatForFood = -500;
         int expResult = -1;
-        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
-        assertEquals(expResult, result);
-        
+        int result = CropControl.wheatForFood(wheatInStore, 
+                wheatForFood, cropData);
+        assertEquals(expResult, result);        
     }
       /**
      * Test of wheatForFood method, of class CropControl.
@@ -209,9 +209,9 @@ public class CropControlTest {
         int wheatInStore = 300;
         int wheatForFood = 300;
         int expResult = 300;
-        int result = CropControl.wheatForFood(wheatInStore, wheatForFood, cropData);
-        assertEquals(expResult, result);
-        
+        int result = CropControl.wheatForFood(wheatInStore, 
+                wheatForFood, cropData);
+        assertEquals(expResult, result);        
     }
 
     /**
