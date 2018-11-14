@@ -153,11 +153,10 @@ public class CropControl
       System.out.println("What in Store = " + wheat);
          return wheat;
     }
-//The seOffering method
-// Purpose: To set the percentage of offering the player wants to allocate
-// @param percentage to pay
-//@ return the percentage to pay or an error
-
+    //The seOffering method
+    // Purpose: To set the percentage of offering the player wants to allocate
+    // @param percentage to pay
+    //@ return the percentage to pay or an error
     public static int setOffering(int percentageToPay)
     {
 //if percentageToPay < 0 and > 1, return -1

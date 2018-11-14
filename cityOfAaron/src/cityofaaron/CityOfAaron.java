@@ -27,6 +27,7 @@ public static Game getGame()
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+           
            MainMenuView mmv = new MainMenuView();
            mmv.displayMenu();
     }    

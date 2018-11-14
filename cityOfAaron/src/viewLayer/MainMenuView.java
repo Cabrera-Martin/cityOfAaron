@@ -78,7 +78,7 @@ public class MainMenuView extends MenuView {
                    "and how much to set apart.\n" +
                    "You will also be in charge of buying and selling land.\n" +
                    "You will be held responsible for anyones death and put into the stockades\n" +
-                   "That will remove 0you from office."
+                   "That will remove you from office.\n"
             );
             
         // Prompt for and get the user’s name.
