@@ -12,15 +12,11 @@ import cityofaaron.CityOfAaron;
  *
  * @author Jake and Martin
  */
-public class GameMenuView {
+public class GameMenuView extends MenuView {
     
-    private String gameMenu;
-    private int max;
-    int userInput = 0;
-    final int MAX = 5;
-    Scanner keyboard = new Scanner(System.in);
-    private Game theGame;
-    
+   int userInput = 0;
+   final int MAX = 5;
+   private Game theGame;    
     // The MainMenuView constructor
     // Purpose: Initialize the menu data
     // Parameters: none
@@ -28,7 +24,7 @@ public class GameMenuView {
     // ===================================    
         public GameMenuView()
     {
-        gameMenu = "\n" +
+        super("\n" +
                    "**********************************\n" +
                    "* CITY OF AARON: GAME MENU  *\n" +
                    "**********************************\n" +
@@ -36,50 +32,15 @@ public class GameMenuView {
                    " 2 - View List\n" +
                    " 3 - Move to new location\n" +
                    " 4 - Manage Crops\n" +
-                   " 5 - Go back\n";
-        
-        max = 5;
+                   " 5 - Go back\n",
+        5);
     }    
-    
-        // The displayGameMenuView method
-        // Purpose: show Game
-        // Parameters: none
-        // Returns: none
-        // ===================================     
-        public void displayGameMenuView()
-        {
-        int menuOption;
-        do
-        {
-    // Display the menu
-            System.out.println(gameMenu);            
-    // Prompt the user and has the user input a number
-            menuOption = getMenuOption();
-    // Perform the desired action
-            doAction(menuOption);
-    }while(menuOption!= max);
-    }
-    public int getMenuOption()
-    {
-        do
-        {
-         // get user input from the /keyboard
-           userInput = keyboard.nextInt();
-        // if it is not a valid value, output an error message
-           if(userInput < 1 || userInput > MAX)
-           System.out.println("Error: you must select 1, 2, 3, 4 or 5");
-        // loop back to the top of the loop if input was not valid
-        // end loop
-        }   while (userInput < 1 || userInput > MAX);   
-
-        return userInput;
-    }
     // The doAction method
     // Purpose: performs the selected action
     // Parameters: none
     // Returns: none
     // ===================================       
-    public void doAction(int option)
+    @Override public void doAction(int option)
     {
         switch(option)
         {
