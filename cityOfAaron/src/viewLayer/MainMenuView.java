@@ -17,7 +17,7 @@ public class MainMenuView extends MenuView {
         
     // The displayMenuView method
     // Purpose: displays the menu, has user input, and does the 
-    //          selected action
+    // selected action
     // Parameters: none
     // Returns: none
     // ========================================================= 
@@ -113,7 +113,7 @@ public class MainMenuView extends MenuView {
         public void displayHelpMenuView()
         {
             HelpMenuView hmv = new HelpMenuView();
-            hmv.displayHelpMenuView();
+            hmv.displayMenu();
 
         System.out.println("\nHere is what you need to know");        
         }

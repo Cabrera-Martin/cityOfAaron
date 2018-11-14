@@ -12,17 +12,14 @@ import cityofaaron.CityOfAaron;
  *
  * @author Jake and Martin
  */
-public class HelpMenuView {
+public class HelpMenuView extends MenuView {
     
-    private String helpMenu;
-    private int max;
     int userInput = 0;
     final int MAX = 5;
-    Scanner keyboard = new Scanner(System.in);
-    
+        
     public HelpMenuView()
     {
-        helpMenu = "\n" +
+        super("\n" +
                    "**********************************\n" +
                    "* CITY OF AARON: HELP MENU  *\n" +
                    "**********************************\n" +
@@ -30,48 +27,15 @@ public class HelpMenuView {
                    " 2 - View Map Help\n" +
                    " 3 - View Move Help\n" +
                    " 4 - View List Help\n" +
-                   " 5 - Go back\n";
-        
-        max = 5;
-    }
-        // The displayHelpMenuView method
-        // Purpose: show Help
-        // Parameters: none
-        // Returns: none
-        // ===================================
-    public void displayHelpMenuView(){
-        int menuOption;
-        do
-        {
-    // Display the menu
-            System.out.println(helpMenu);            
-    // Prompt the user and has the user input a number
-            menuOption = getMenuOption();
-    // Perform the desired action
-            doAction(menuOption);
-    }while(menuOption!= max);
-    }
-    public int getMenuOption()
-    {
-        do
-        {
-         // get user input from the keyboard
-         userInput = keyboard.nextInt();
-         // if it is not a valid value, output an error message
-         if(userInput < 1 || userInput > MAX)
-           System.out.println("Error: you must select 1, 2, 3, 4 or 5");
-        // loop back to the top of the loop if input was not valid
-        // end loop
-        } while (userInput < 1 || userInput > MAX);   
-
-        return userInput;
+                   " 5 - Go back\n",
+                5);
     }
     // The doAction method
     // Purpose: performs the selected action
     // Parameters: none
     // Returns: none
     // ===================================       
-    public void doAction(int option)
+  @Override public void doAction(int option)
     {
         switch(option)
         {
@@ -94,11 +58,8 @@ public class HelpMenuView {
         // Purpose: creates game object and starts the game
         // Parameters: none
         // Returns: none
-        // ===================================     
-        
-}
-
-        
+        // ===================================            
+}       
         public void viewGoals()
         {
         // Display the Banner Page.
