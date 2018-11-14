@@ -7,6 +7,7 @@ package viewLayer;
 import model.*;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
+import static viewLayer.CropView.displayCropsReportView;
 
 /**
  *
@@ -81,6 +82,8 @@ public class GameMenuView extends MenuView {
  public void manageCrops()
         {
         // Display the Map.
+            CropView dcrv = new CropView();
+            dcrv.displayCropsReportView();
             System.out.println("ManageCrops");
         }
 }

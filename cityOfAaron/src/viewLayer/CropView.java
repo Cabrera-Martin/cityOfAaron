@@ -103,21 +103,21 @@ public class CropView {
     // Returns: none
     public static void displayCropsReportView(){
     // a. The year number 
-    System.out.format("You are in the year %d",cropData.getyear());
+    System.out.format("You are in the year %d\n",cropData.getyear());
     // b. How many people starved 
-    System.out.format("%d People died of starvation.",cropData.getnumberWhoDied());
+    System.out.format("%d People died of starvation.\n",cropData.getnumberWhoDied());
     // c. How many people came to the city 
-    System.out.format("%d People came the City",cropData.getnewPeople());
+    System.out.format("%d People came the City\n",cropData.getnewPeople());
     // d. The current population 
-    System.out.format("The total population is: %d",cropData.getpopulation());
+    System.out.format("The total population is: %d\n",cropData.getpopulation());
     // e. The number of acres of crop land owned by the city 
-    System.out.format("You own %d of acres.",cropData.getacresOwned());
+    System.out.format("You own %d of acres.\n",cropData.getacresOwned());
     // f. The number of bushels per acre in this years harvest 
-    System.out.format("You have harvested %d of bushels per acre",cropData.getcropYield());
+    System.out.format("You have harvested %d bushels of wheat per acre\n",cropData.getcropYield());
     // g. The total number of bushels of wheat harvested 
-    System.out.format("You have harvested a total of %d bushels",cropData.getharvest());
+    System.out.format("You have harvested a total of %d bushels\n",cropData.getharvest());
     // h. The number of bushels of wheat in store 
-    System.out.format("You have %d of wheat left in Storage.",cropData.getwheatInStore());
+    System.out.format("You have %d bushels of wheat left in Storage.\n",cropData.getwheatInStore());
   
     }         
     // The runCropView method()
