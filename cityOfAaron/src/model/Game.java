@@ -12,28 +12,19 @@ public class Game implements Serializable{
     private CropData cropData;
     
     public Game(){}
-    public Player setPlayer()
+    public Player getPlayer()
     {
      return thePlayer;
     }
-        public void getPlayer(Player _thePlayer){
+        public void setPlayer(Player _thePlayer){
         thePlayer= _thePlayer;
         }
-        public void setPlayer(Player player) {
         
-    }
-    public CropData setcropData()
+    public CropData getcropData()
     {
      return cropData;
     }
-        public void getCropData(CropData _cropData){
+        public void setcropData(CropData _cropData){
         cropData= _cropData;
         }
-
-    public CropData getCropData() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    
-        
 }

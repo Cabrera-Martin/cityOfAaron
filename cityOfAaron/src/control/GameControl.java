@@ -35,7 +35,7 @@ public class GameControl {
         cropData.setacresPlanted(1000);
         cropData.setharvest(3000);
         cropData.setacresPlanted(1000); 
-        game.setcropData(); 
+        game.setcropData(cropData); 
         
         // when all is done, save a reference to the Game object
         CityOfAaron.setGame(game);   

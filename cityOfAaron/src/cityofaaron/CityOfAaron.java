@@ -15,21 +15,14 @@ import viewLayer.*;
 public class CityOfAaron {
 
     private static Game theGame = null;
-
-    public static void setGame(Game game) {
-       
-    }
-    public static Game getGame() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-   
-    public Game setgame()
+public static Game getGame()
     {
      return theGame;
     }
-    public void getGame(Game _theGame){
+    public static void setGame(Game _theGame){
     theGame = _theGame;
-        }
+        }   
+    
     /**
      * @param args the command line arguments
      */

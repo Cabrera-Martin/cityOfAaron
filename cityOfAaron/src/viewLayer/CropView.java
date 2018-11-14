@@ -16,7 +16,7 @@ public class CropView {
  
  // Get references to the Game object and the CropData object
  static private Game game = CityOfAaron.getGame();
- static private CropData cropData = game.getCropData();
+ static private CropData cropData = game.getcropData();
     
     // The buyLandView method
     // Purpose: interface with the user input for buying land
