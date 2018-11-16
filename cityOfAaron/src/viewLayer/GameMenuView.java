@@ -72,7 +72,7 @@ public class GameMenuView extends MenuView {
         // Display the ListMenuView
             System.out.println("Here is the List");
             ListMenuView gmv = new ListMenuView();
-            gmv.displayListMenuView();
+            gmv.displayMenu();
         }
  public void moveToNewLocation()
         {
