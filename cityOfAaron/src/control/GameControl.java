@@ -184,7 +184,7 @@ public class GameControl {
             loc.setSymbol("///");
             theMap.setLocation(1, 0, loc);
             
-            game.setMap(theMap);            
+            game.setmap(theMap);            
         }
     
 }

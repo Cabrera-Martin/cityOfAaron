@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class Game implements Serializable{
     private Player thePlayer;
     private CropData cropData;
+    private Map theMap;
     
     public Game(){}
     public Player getPlayer()
@@ -26,5 +27,12 @@ public class Game implements Serializable{
     }
         public void setcropData(CropData _cropData){
         cropData= _cropData;
-        }
+    }
+    public Map getMap()
+    {
+        return theMap;
+    }
+    public void setmap(Map _theMap){
+        theMap= _theMap;
+    }    
 }
