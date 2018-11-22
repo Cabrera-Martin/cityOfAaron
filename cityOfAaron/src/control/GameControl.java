@@ -25,7 +25,11 @@ public class GameControl {
         game.setPlayer(player);
       
         // when all is done, save a reference to the Game object
-        CityOfAaron.setGame(game);  
+        CityOfAaron.setGame(game); 
+        //Creates CropDataObject
+        createCropDataObject();
+        //Creates Map
+        createMap();
     }
     public static void createCropDataObject()
        {        
@@ -68,6 +72,7 @@ public class GameControl {
         for(int i = 0; i < MAX_ROW; i++)
             {
             theMap.setLocation(i, 4, loc);
+            theMap.setLocation(1, 4, loc);
             }
             // define the string for a farm land location
             String farmland = "\nYou are on the fertile banks of the River." +
@@ -78,7 +83,108 @@ public class GameControl {
             loc = new Location();
             loc.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
             loc.setSymbol("!!!");
+            theMap.setLocation(0, 1, loc);
             theMap.setLocation(0, 2, loc);
-
+            theMap.setLocation(0, 3, loc);
+            theMap.setLocation(1, 1, loc);
+            theMap.setLocation(1, 2, loc);
+            theMap.setLocation(1, 3, loc);
+            // define the string for a farm land location
+            
+            String house =    "\nThis is your house, come on in!";
+            // set a house location
+            loc = new Location();
+            loc.setDescription(house);
+            loc.setSymbol("/H/");
+            theMap.setLocation(0, 0, loc);
+            
+            // define the string for a crop barn location            
+            String cropBarn =    "\nThis is the barn where you store your crops!";
+            // set a barn location
+            loc = new Location();
+            loc.setDescription(cropBarn);
+            loc.setSymbol("B");
+            theMap.setLocation(2, 0, loc);
+            
+            // define the string for an animal barn location            
+            String animalBarn =    "\nThis is the barn where you keep your animals!";
+            // set a barn location
+            loc = new Location();
+            loc.setDescription(animalBarn);
+            loc.setSymbol("AB");
+            theMap.setLocation(4, 1, loc);
+            // define the string for a forest location
+            String forest = "\nYou are on the woody forest, where you can find material for building refugess"; 
+            // set a forest location
+            loc = new Location();
+            loc.setDescription(forest);
+            loc.setSymbol("^^^^^^^");
+            theMap.setLocation(2, 3, loc);
+            theMap.setLocation(2, 4, loc);
+            theMap.setLocation(3, 3, loc);
+            theMap.setLocation(3, 4, loc);
+            theMap.setLocation(4, 3, loc);
+            theMap.setLocation(4, 4, loc);
+           
+            // define the string for a pastures location
+            String pastures = "\nYou are on the green pastures, your animals can roam here!"; 
+            // set a pastures location
+            loc = new Location();
+            loc.setDescription(pastures);
+            loc.setSymbol("#!!#");
+            theMap.setLocation(2, 2, loc);
+            theMap.setLocation(3, 2, loc);
+            
+            // define the string for a temple location
+            String temple = "\nThis is a sacred place. Enjoy it!"; 
+            // set a temple location
+            loc = new Location();
+            loc.setDescription(temple);
+            loc.setSymbol("^!^");
+            theMap.setLocation(4, 2, loc);
+            
+            // define the string for a lake location
+            String lake = "\nThis is a great lake, we can fish, swim, and drink from it!"; 
+            // set a lake location
+            loc = new Location();
+            loc.setDescription(lake);
+            loc.setSymbol("L");
+            theMap.setLocation(2, 1, loc);
+            
+            // define the string for a toolShed location
+            String toolShed = "\nThis is where you keep all your tools!"; 
+            // set a toolShed location
+            loc = new Location();
+            loc.setDescription(toolShed);
+            loc.setSymbol("*-*");
+            theMap.setLocation(3, 1, loc);
+            
+            // define the string for a garden location
+            String garden = "\nThis garden is filled with fruits and vegetables that you can consume"+
+                            "\n it is also great to spend some time with family"; 
+            // set a garden location
+            loc = new Location();
+            loc.setDescription(garden);
+            loc.setSymbol("**");
+            theMap.setLocation(3, 0, loc);
+            
+            // define the string for a chicken pin location
+            String chickenPin = "\nAll the chickens are kept here for safety"; 
+            // set a chicken pin location
+            loc = new Location();
+            loc.setDescription(chickenPin);
+            loc.setSymbol("/-/");
+            theMap.setLocation(4, 0, loc);
+            
+            // define the string for a chapel location
+            String chapel = "\nOnce a week we meet here to pray"; 
+            // set a chapel location
+            loc = new Location();
+            loc.setDescription(chapel);
+            loc.setSymbol("///");
+            theMap.setLocation(1, 0, loc);
+            
+            game.setMap(theMap);
         }
+    
 }

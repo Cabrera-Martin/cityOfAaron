@@ -48,7 +48,7 @@ public class GameMenuView extends MenuView {
            case 1: // call new game
                 viewMap();
                 break;
-            case 2: // start a saved game
+            case 2: // view list
                 viewList();
                 break;
             case 3: // show help menu
@@ -71,8 +71,8 @@ public class GameMenuView extends MenuView {
         {
         // Display the ListMenuView
             System.out.println("Here is the List");
-            ListMenuView gmv = new ListMenuView();
-            gmv.displayMenu();
+            ListMenuView lmv = new ListMenuView();
+            lmv.displayMenu();
         }
  public void moveToNewLocation()
         {
