@@ -17,6 +17,7 @@ import model.*;
  * @author Jake Davis
  */
 public class ListMenuView extends MenuView {
+    private Game game = CityOfAaron.getGame();
        
     //The GameMenuView constructor
     //Purpose: activates the list menu
@@ -74,26 +75,24 @@ public class ListMenuView extends MenuView {
         {
         
             System.out.println("listAnimals option selected");
-        }   
-        
+        }  
+        // the listTools method
+        // Purpose: displays the tool list
+        // Parameters: none
+        // Returns: none
         public void listTools(){
-            //System.out.println("listTools option selected");
-            //get the ArrayList from Game
-            Game theGame = CityOfAaron.getGame();
-            ArrayList<ListItem>tools = theGame.getTools();
-            
-            for(ListItem tool : tools){
-               System.out.println(tool.toString());
-            }
-               
-                int i = 0;
-                        
-            //gets ListItem out of ArrayList
-            ListItem tool = tools.get(i);
-            
-            System.out.println(tool.getName() + "\t" + tool.getNumber() );
-            }
+        // System.out.println("listTools option selected");
+        Game theGame = CityOfAaron.getGame();
+        ArrayList<ListItem>tools = theGame.getTools();
         
+        for(ListItem tool : tools){
+            System.out.println(tool.toString());
+        }
+        int i = 0;
+        // get the ListItem out of the ArrayList
+        ListItem tool = tools.get(i);
+        System.out.println(tool.getName() + "\t" + tool.getNumber());
+        }
         
         public void listProvisions()
         {

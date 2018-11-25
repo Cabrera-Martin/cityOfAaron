@@ -5,6 +5,8 @@
  * Team members: Jake Davis, Martin Cabrera
  */
 package model;
+import java.util.ArrayList;
+        
 
 /**
  *
