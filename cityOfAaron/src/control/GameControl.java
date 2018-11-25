@@ -7,6 +7,7 @@
 package control;
 import model.*;
 import cityofaaron.CityOfAaron;
+import java.util.ArrayList;
 
 public class GameControl {
     
@@ -186,5 +187,15 @@ public class GameControl {
             
             game.setmap(theMap);            
         }
-    
+        //defines the tools needed for servival
+        public static void createToolsList(){
+            ArrayList<ListItem> tools = new ArrayList();
+            tools.add(new ListItem("axe", 15));
+            tools.add(new ListItem("pickaxe", 12));
+            tools.add(new ListItem("shovel", 10));
+            tools.add(new ListItem("hoe", 15));
+            tools.add(new ListItem("knife", 20));
+                    
+            game.setTools(tools);
+        }
 }

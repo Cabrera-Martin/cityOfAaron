@@ -9,6 +9,8 @@ package viewLayer;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import control.GameControl;
+import java.util.ArrayList;
+import model.*;
 
 /**
  * 
@@ -74,10 +76,24 @@ public class ListMenuView extends MenuView {
             System.out.println("listAnimals option selected");
         }   
         
-        public void listTools()
-        {
-        System.out.println("listTools option selected");
-        }
+        public void listTools(){
+            //System.out.println("listTools option selected");
+            //get the ArrayList from Game
+            Game theGame = CityOfAaron.getGame();
+            ArrayList<ListItem>tools = theGame.getTools();
+            
+            for(ListItem tool : tools){
+               System.out.println(tool.toString());
+            }
+               
+                int i = 0;
+                        
+            //gets ListItem out of ArrayList
+            ListItem tool = tools.get(i);
+            
+            System.out.println(tool.getName() + "\t" + tool.getNumber() );
+            }
+        
         
         public void listProvisions()
         {

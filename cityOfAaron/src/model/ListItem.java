@@ -18,6 +18,10 @@ public class ListItem implements Serializable{
     
     public ListItem(){
     }
+    public ListItem(String _name, int _number){
+        name = _name;
+        number = _number;
+    }
     public String getName()
     {
      return name;
