@@ -190,15 +190,16 @@ public class GameControl {
         }
         //defines the tools needed for servival
         public static ArrayList<ListItem> createToolsList(){
-            Game theGame = new Game();
-            ArrayList<ListItem> tools = new ArrayList();
-            tools.add(new ListItem("axe", 15));
+                                  
+            ArrayList<ListItem> tools = new ArrayList<>();
+            
             tools.add(new ListItem("pickaxe", 12));
+            tools.add(new ListItem("axe", 15));
             tools.add(new ListItem("shovel", 10));
             tools.add(new ListItem("hoe", 15));
             tools.add(new ListItem("knife", 20));
-                    
-            game.setTools(tools);
-            return tools;
+            
+            game.settools(tools);
+            return tools;           
         }
 }

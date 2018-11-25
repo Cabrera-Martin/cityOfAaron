@@ -44,10 +44,10 @@ public class Game implements Serializable{
         theMap= _theMap;
     } 
     
-    public ArrayList<ListItem> getTools(){
+    public ArrayList<ListItem> gettools(){
         return tools;
     }
-    public void setTools(ArrayList<ListItem> _tools){
+    public void settools(ArrayList<ListItem> _tools){
         tools= _tools;
     }
 }

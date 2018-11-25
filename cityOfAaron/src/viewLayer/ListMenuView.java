@@ -81,18 +81,17 @@ public class ListMenuView extends MenuView {
         // Parameters: none
         // Returns: none
         public void listTools(){
+            Game theGame = CityOfAaron.getGame();
+            ArrayList<ListItem>tools = theGame.gettools();
+           
         // System.out.println("listTools option selected");
-        Game theGame = CityOfAaron.getGame();
-        ArrayList<ListItem>tools = theGame.getTools();
-        
-        for(ListItem tool : tools){
-            System.out.println(tool.toString());
+         System.out.println("Tools in the City of Aaron:");      
+        for(int i = 0; i < tools.size();i++){
+            
+         ListItem tool = tools.get(i);
+         System.out.println(tool.getName() + "\t" + tool.getNumber());
         }
-        int i = 0;
-        // get the ListItem out of the ArrayList
-        ListItem tool = tools.get(i);
-        System.out.println(tool.getName() + "\t" + tool.getNumber());
-        }
+                }
         
         public void listProvisions()
         {
@@ -102,7 +101,5 @@ public class ListMenuView extends MenuView {
         public void listTeam()
         {
         System.out.println("listTeam option selected");
-        }       
-        
-        
+        }
 }
