@@ -189,8 +189,7 @@ public class GameControl {
             game.setmap(theMap);            
         }
         //defines the tools needed for servival
-        public static ArrayList<ListItem> createToolsList(){
-            Game theGame = new Game();
+        public static void createToolsList(){
             ArrayList<ListItem> tools = new ArrayList();
             tools.add(new ListItem("axe", 15));
             tools.add(new ListItem("pickaxe", 12));
@@ -199,6 +198,5 @@ public class GameControl {
             tools.add(new ListItem("knife", 20));
                     
             game.setTools(tools);
-            return tools;
         }
 }
