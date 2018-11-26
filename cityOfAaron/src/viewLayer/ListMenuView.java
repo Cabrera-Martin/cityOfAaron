@@ -84,7 +84,9 @@ public class ListMenuView extends MenuView {
         ArrayList<ListItem> tools = theGame.gettools();
            
         // System.out.println("listTools option selected");
-        System.out.println("Tools in the City of Aaron:");      
+         System.out.println("Tools in the City of Aaron:");
+         
+         //algorithim to display the tools
         for(int i = 0; i < tools.size();i++){
             
             ListItem tool = tools.get(i);

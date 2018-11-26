@@ -194,7 +194,7 @@ public class GameControl {
         public static ArrayList<ListItem> createToolsList(){
                                   
             ArrayList<ListItem> tools = new ArrayList<>();
-            
+         //the list and amount of tools   
             tools.add(new ListItem("pickaxe", 12));
             tools.add(new ListItem("axe", 15));
             tools.add(new ListItem("shovel", 10));
