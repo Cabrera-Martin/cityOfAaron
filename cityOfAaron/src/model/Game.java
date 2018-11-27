@@ -53,14 +53,14 @@ public class Game implements Serializable{
     public void settools(ArrayList<ListItem> _tools){
         tools= _tools;
     }
-    /**
+    /**Getter for animals
      *Created by Martin
      * @return animals
      */
     public ArrayList<ListItem> getanimals(){
         return animals;
     }
-    /**
+    /**Setter for animals
      *Created by Martin
      * @param _animals
      */
@@ -68,7 +68,7 @@ public class Game implements Serializable{
         animals = _animals;
     }
 
-    /**
+    /**Getter for provisions
      *Created by Martin
      * @return provisions
      */
@@ -76,7 +76,7 @@ public class Game implements Serializable{
         return provisions;
     }
 
-    /**
+    /**Setter for provisions
      *Created by Martin
      * @param _provisions
      */

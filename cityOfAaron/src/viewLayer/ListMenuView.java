@@ -103,9 +103,11 @@ public class ListMenuView extends MenuView {
         ArrayList<ListItem> provisions = theGame.getprovisions();
            
         System.out.println("Provisions in the City of Aaron:");      
+        //iterates through the array to get the items
         for(int i = 0; i < provisions.size();i++){
-            
+            //gets the provision in the list with the index = i, stores it in the variable provision
             ListItem provision = provisions.get(i);
+            //displays the name and number for provision
             System.out.println(provision.getName() + "\t" + provision.getNumber());
         }
         }
@@ -118,11 +120,14 @@ public class ListMenuView extends MenuView {
        {
         Game theGame = CityOfAaron.getGame();
         ArrayList<ListItem> animals = theGame.getanimals();
-           
-        System.out.println("Animals in the City of Aaron:");      
+        //displays the "Animals in the City of Aaron:" string to the player
+        System.out.println("Animals in the City of Aaron:"); 
+        //iterates through the array to get the items
         for(int i = 0; i < animals.size();i++){
             
+            //gets the animal in the list with the index = i, stores it in the variable animal
             ListItem animal = animals.get(i);
+            //displays the name and number for animal
             System.out.println(animal.getName() + "\t" + animal.getNumber());
             }
         }

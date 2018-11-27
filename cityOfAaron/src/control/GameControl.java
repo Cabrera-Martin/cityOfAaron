@@ -207,9 +207,9 @@ public class GameControl {
         
         //defines the amount of animals in our property
         public static ArrayList<ListItem> createAnimalsList(){
-                                  
+            //creates a new ArrayList named animals                                            
             ArrayList<ListItem> animals = new ArrayList<>();
-            
+            //adds the below items as items to the ArrayList
             animals.add(new ListItem("Horses", 5));
             animals.add(new ListItem("Cows", 150));
             animals.add(new ListItem("Sheep", 100));
@@ -220,16 +220,18 @@ public class GameControl {
             return animals;           
         }
         
-        //defines the our quantity of provisions
+        //defines the list for the quantity of provisions
         public static ArrayList<ListItem> createProvisionsList(){
-                                  
+            //creates a new ArrayList named provisions                      
             ArrayList<ListItem> provisions = new ArrayList<>();
             
+            //adds new items to the ArrayList
             provisions.add(new ListItem("Gallons of Milk: ", 50));
             provisions.add(new ListItem("Pounds of Flour: ", 150));
             provisions.add(new ListItem("Bags of Beans:   ", 100));
             provisions.add(new ListItem("Pounds of Dried meat: ", 20));
-                        
+
+            //sets the provisions items
             game.setprovisions(provisions);
             return provisions;           
         }
