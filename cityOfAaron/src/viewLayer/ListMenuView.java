@@ -41,7 +41,7 @@ public class ListMenuView extends MenuView {
                    "**********************************\n" +
                    " 1 - List of Animals in storehouse\n" +
                    " 2 - List the tools in storehouse\n" +
-                   " 3 - List Pervisions in storehouse\n" +
+                   " 3 - List Provisions in storehouse\n" +
                    " 4 - List team \n" +
                    " 5 - Return to Game Menu\n",
         5);
@@ -61,7 +61,7 @@ public class ListMenuView extends MenuView {
             case 2: // List the tools in storehouse
                 listTools();
                 break;
-            case 3: // List Pervisions in storehouse
+            case 3: // List Provisions in storehouse
                 listProvisions();
                 break;
             case 4: // List team
@@ -70,35 +70,63 @@ public class ListMenuView extends MenuView {
             case 5: //Returns to main menu
                 return;
         }
-}
-        public void listAnimals()
-        {
+    }
+          
         
-            System.out.println("listAnimals option selected");
-        }  
-        // the listTools method
-        // Purpose: displays the tool list
-        // Parameters: none
-        // Returns: none
-        public void listTools(){
-            Game theGame = CityOfAaron.getGame();
-            ArrayList<ListItem>tools = theGame.gettools();
+    // Created by Jake      
+    // the listTools method
+    // Purpose: displays the tool list
+    // Parameters: none
+    // Returns: none
+        
+    public void listTools(){
+        Game theGame = CityOfAaron.getGame();
+        ArrayList<ListItem> tools = theGame.gettools();
            
         // System.out.println("listTools option selected");
-         System.out.println("Tools in the City of Aaron:");      
+        System.out.println("Tools in the City of Aaron:");      
         for(int i = 0; i < tools.size();i++){
             
-         ListItem tool = tools.get(i);
-         System.out.println(tool.getName() + "\t" + tool.getNumber());
+            ListItem tool = tools.get(i);
+            System.out.println(tool.getName() + "\t" + tool.getNumber());
+            }
         }
-                }
         
-        public void listProvisions()
+    // Created by Martin      
+    // the listProvisions method
+    // Purpose: displays the list of Provisions
+    // Parameters: none
+    // Returns: none
+    public void listProvisions()
         {
-        System.out.println("listProvisions option selected");
+        Game theGame = CityOfAaron.getGame();
+        ArrayList<ListItem> provisions = theGame.getprovisions();
+           
+        System.out.println("Provisions in the City of Aaron:");      
+        for(int i = 0; i < provisions.size();i++){
+            
+            ListItem provision = provisions.get(i);
+            System.out.println(provision.getName() + "\t" + provision.getNumber());
         }
-             
-        public void listTeam()
+        }
+    // Created by Martin      
+    // the listAnimals method
+    // Purpose: displays the list of Animals
+    // Parameters: none
+    // Returns: none
+    public void listAnimals()
+       {
+        Game theGame = CityOfAaron.getGame();
+        ArrayList<ListItem> animals = theGame.getanimals();
+           
+        System.out.println("Animals in the City of Aaron:");      
+        for(int i = 0; i < animals.size();i++){
+            
+            ListItem animal = animals.get(i);
+            System.out.println(animal.getName() + "\t" + animal.getNumber());
+            }
+        }
+    public void listTeam()
         {
         System.out.println("listTeam option selected");
         }

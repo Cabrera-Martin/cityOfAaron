@@ -19,6 +19,10 @@ public class Game implements Serializable{
     
     //a referance to the tools ListItem
     private ArrayList<ListItem> tools = null;
+    //a referance to the animals ListItem
+    private ArrayList<ListItem> animals = null;
+    //a referance to the provisions ListItem
+    private ArrayList<ListItem> provisions = null;
     
     public Game(){}
     public Player getPlayer()
@@ -43,11 +47,40 @@ public class Game implements Serializable{
     public void setmap(Map _theMap){
         theMap= _theMap;
     } 
-    
     public ArrayList<ListItem> gettools(){
         return tools;
     }
     public void settools(ArrayList<ListItem> _tools){
         tools= _tools;
+    }
+    /**
+     *Created by Martin
+     * @return animals
+     */
+    public ArrayList<ListItem> getanimals(){
+        return animals;
+    }
+    /**
+     *Created by Martin
+     * @param _animals
+     */
+    public void setanimals(ArrayList<ListItem> _animals){
+        animals = _animals;
+    }
+
+    /**
+     *Created by Martin
+     * @return provisions
+     */
+    public ArrayList<ListItem> getprovisions(){
+        return provisions;
+    }
+
+    /**
+     *Created by Martin
+     * @param _provisions
+     */
+    public void setprovisions(ArrayList<ListItem> _provisions){
+        provisions = _provisions;
     }
 }
