@@ -225,10 +225,10 @@ public class GameControl {
                                   
             ArrayList<ListItem> provisions = new ArrayList<>();
             
-            provisions.add(new ListItem("Gallons of Milk", 50));
-            provisions.add(new ListItem("Pounds of Flour", 150));
-            provisions.add(new ListItem("Bags of Beans", 100));
-            provisions.add(new ListItem("Pounds of Dried meat", 20));
+            provisions.add(new ListItem("Gallons of Milk: ", 50));
+            provisions.add(new ListItem("Pounds of Flour: ", 150));
+            provisions.add(new ListItem("Bags of Beans:   ", 100));
+            provisions.add(new ListItem("Pounds of Dried meat: ", 20));
                         
             game.setprovisions(provisions);
             return provisions;           
