@@ -7,6 +7,7 @@
 package control;
 import java.util.Random;
 import model.CropData;
+import exceptions.*;
 
 public class CropControl 
 {
@@ -34,15 +35,15 @@ public class CropControl
 //@ return the number of total acres after the purchase
 //Pre-conditions: acres to buy must be positive
 //and <= than the bushel of wheat owned * landPrice
-    public static int buyLand(int landCost, int acresToBuy, CropData cropData)
+    public static void buyLand(int landCost, int acresToBuy, CropData cropData) throws CropException
     {
         //if acresToBuy < 0, return -1
         if(acresToBuy < 0)
-            return -1;
+            throw new CropException("A negative value was input");
         //if acresToBuy*landCost > wheatInStore, return -1
         int bushel = cropData.getwheatInStore();
         if(acresToBuy*landCost > bushel)
-             return -1;
+            throw new CropException("There is insufficient wheat to buy this much land");
         //acresOwned = acresOwned + acresToBuy
         int owned = cropData.getacresOwned();
         owned += acresToBuy;
@@ -51,8 +52,6 @@ public class CropControl
         int wheat = cropData.getwheatInStore();
         wheat-= (acresToBuy * landCost);
         cropData.setwheatInStore(wheat);
-        //return acresOwned
-        return owned;
     }
     //The sellLand method
     //Purpose: To sell land
@@ -62,24 +61,22 @@ public class CropControl
     //@ return the number of total acres after the sale
     //Pre-conditions: acres to sell must be positive
     //and <= than acres owned
-    public static int sellLand(int landCost, int acresToSell, CropData cropData)
+    public static void sellLand(int landCost, int acresToSell, CropData cropData) throws CropException
     {
         //if acresToBuy < 0, return -1
         if(acresToSell < 0)
-            return -1;
+            throw new CropException("A negative value was input");
         //if acresToSell > acresOwned, return -1
         int owned = cropData.getacresOwned();
         if(acresToSell > owned)
-             return -1;
+             throw new CropException("You own less land than what you are intending to sell");
         //acresOwned = acresOwned - acresToSell
         owned -= acresToSell;
         cropData.setacresOwned(owned);
         //wheatInStore = wheatInStore + acresToSell * landCost
         int wheat = cropData.getwheatInStore();
         wheat+= (acresToSell * landCost);
-        cropData.setwheatInStore(wheat);
-        //return acresOwned
-        return owned;
+        cropData.setwheatInStore(wheat);        
     }
 //The feedThePeople method
 // Purpose: To feed the people
