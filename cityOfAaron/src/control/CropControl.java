@@ -86,26 +86,22 @@ public class CropControl
 //@return the number of total wheatForFood after saving
 //Pre-conditions: value given from player must be positive
 //and wheatInStorage must be <= than the value given from the player
-   public static int wheatForFood(int wheatInStore, int wheatForFood, CropData cropData)
+   public static void wheatForFood(int wheatInStore, int wheatForFood, CropData cropData)throws CropException
 {
     //if wheatForFood < 0, return -1
     if(wheatForFood < 0){
-        return -1;
+        throw new CropException("A negative value was input");
     }
     //if wheatInStorage  < wheatForFood,  return -1
     if (wheatInStore < wheatForFood){
-        return -1;
+        throw new CropException("You don't have that much weath");
     }
     //wheatInStore = wheatInStore - wheatForFood
         int wheat = cropData.getwheatInStore();
         wheat -= wheatForFood;
         cropData.setwheatInStore(wheatInStore);
         cropData.setwheatForFood(wheatForFood);
-    
-    //return wheatForFood
-    return wheatForFood;
-
-}
+    }
 // The plantCrop method
 //Purpose: To plant crops land
 //@param the amount of people in the city
