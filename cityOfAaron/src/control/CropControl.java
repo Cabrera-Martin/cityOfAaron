@@ -114,24 +114,24 @@ public class CropControl
 //Pre-conditions: acres to plant must be positive, acres to plant is <= acres owned, acres to be //planted / 10 <= amount of people in the city abd the acres to plant / 2 <= than bushel of
 //wheat in storage
   
-    public static int plantCrops(int acresToPlant, CropData cropData)
+    public static void plantCrops(int acresToPlant, CropData cropData)throws CropException
     {
     //if acresToPlant < 0, return -1
         if(acresToPlant < 0)
-            return -1;
+            throw new CropException("There was a problem, please enter another value.");
         //if acresToPlant > acresOwned, return -1        
         int owned = cropData.getacresOwned();
         if(acresToPlant > owned)
-             return -1;
+             throw new CropException("There was a problem, please enter another value.");
         //if acresToPlant/2 > bushelInStorage, return -1
         int bushel = cropData.getwheatInStore();
         if(acresToPlant/2 > bushel)
-             return -1;
+             throw new CropException("There are not enough bushels of wheat in storage.");
         
         //if acresToPlant/10 > population, return -1
         int pop = cropData.getpopulation();
         if(acresToPlant/10 > pop)
-             return -1;
+             throw new CropException("There are not enough people to plant wheat.");
         //acresPlanted = acresPlanted + acresToPlant
         int planted = cropData.getacresPlanted();
         planted+= (acresToPlant);
@@ -144,7 +144,6 @@ public class CropControl
          //return acresPlanted and wheatInStore
       System.out.println("Acres Planted = " + planted);
       System.out.println("What in Store = " + wheat);
-         return wheat;
     }
     //The seOffering method
     // Purpose: To set the percentage of offering the player wants to allocate

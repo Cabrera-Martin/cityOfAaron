@@ -140,18 +140,32 @@ public class CropView {
         System.out.format("You have %d bushels of wheat left in Storage.\n",cropData.getwheatInStore());
   
     }
-    // The plantCropsView method
+   // The plantCropsView method
     // Purpose: interface with the user input for planting crops
     // Parameters: none
     // Returns: none
     public static void plantCropsView(){
+    //Get the user's input and save it.
+    int toPlant;
+    boolean paramsNotOkay;
+    do{
+        paramsNotOkay = false;
         // Prompt the user to enter how many acres they want to plant
         System.out.print("How many acres of land do you want to plant?: ");
-        //Get the user's input and save it.
-        int toPlant;
         toPlant = keyboard.nextInt();
-        //Call the plantCrops() method in the control layer
-        CropControl.plantCrops(toPlant, cropData);
+        try{
+            //Call the plantCrops() method in the control layer
+            CropControl.plantCrops(toPlant, cropData);
+            }
+        catch (CropException e)
+        {
+            System.out.println("I am sorry master, I connot do this.");
+            System.out.println(e.getMessage());
+            paramsNotOkay = true;
+        }
+        }    
+        while(paramsNotOkay);        
+            
         // output how many acres we have planted
         System.out.format("You have planted %d acres of land now.\n",cropData.getacresPlanted());
         // output how much wheat is left in Store
