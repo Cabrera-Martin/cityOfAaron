@@ -83,7 +83,7 @@ public class GameMenuView extends MenuView {
         {
         // Display the Map.
             CropView dcrv = new CropView();
-            dcrv.displayCropsReportView();
+            dcrv.runCropView();
             System.out.println("ManageCrops");
         }
 }
