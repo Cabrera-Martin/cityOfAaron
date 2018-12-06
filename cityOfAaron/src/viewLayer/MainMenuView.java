@@ -103,7 +103,14 @@ public class MainMenuView extends MenuView {
         // ===================================     
         public void startSavedGame()
         {
-        System.out.println("\nContinue game!");
+            //get rid of nl character left in the stream
+            
+            //prompt user and get a file path
+            
+            //call the getSavedGame() methid in the GameControl class to load the game
+            
+            //display the game menu for the loaded game
+             System.out.println("\nContinue game!");
         }
         // The displayHelpMenuView method
         // Purpose: show Help
