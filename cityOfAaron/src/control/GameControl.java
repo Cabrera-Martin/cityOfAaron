@@ -8,6 +8,7 @@ package control;
 import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
+import java.io.*;
 
 public class GameControl {
     
@@ -235,4 +236,25 @@ public class GameControl {
             game.setprovisions(provisions);
             return provisions;           
         }
+        // the getSavedGame method
+    // Purpose: load a saved game from disk
+    // Parameters: the file path
+    // Returns: none
+    // Side Effect: the game reference in the driver is updated
+    public static void getSavedGame(String filePath)
+    {
+        Game theGame = null;
+        
+        try (FileInputStream fips = new FileInputStream(filePath))
+        {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            theGame = (Game)input.readObject();
+            CityOfAaron.setGame(theGame);
+        }
+        catch(Exception e)
+        {
+            System.out.println("\nThere was an error reading the saved game file");
+        }
+    }
+
 }

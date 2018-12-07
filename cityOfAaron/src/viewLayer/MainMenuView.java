@@ -10,7 +10,9 @@ import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import control.GameControl;
 
+
 public class MainMenuView extends MenuView {
+    
     
     int userInput = 0;
     final int MAX = 5;
@@ -106,12 +108,13 @@ public class MainMenuView extends MenuView {
             //get rid of nl character left in the stream
             
             //prompt user and get a file path
+            System.out.println("Please enter the file path here: ");
+            String filePath = keyboard.next();
             
-            //call the getSavedGame() methid in the GameControl class to load the game
+            //call the getSavedGame() method in the GameControl class to load the game
             
             //display the game menu for the loaded game
-             System.out.println("\nContinue game!");
-        }
+         }
         // The displayHelpMenuView method
         // Purpose: show Help
         // Parameters: none
