@@ -106,14 +106,17 @@ public class MainMenuView extends MenuView {
         public void startSavedGame()
         {
             //get rid of nl character left in the stream
-            
+            keyboard.nextLine();
             //prompt user and get a file path
             System.out.println("Please enter the file path here: ");
             String filePath = keyboard.next();
             
             //call the getSavedGame() method in the GameControl class to load the game
+            GameControl.getSavedGame(filePath);
             
             //display the game menu for the loaded game
+            GameMenuView gmv = new GameMenuView();
+            gmv.displayMenu();
          }
         // The displayHelpMenuView method
         // Purpose: show Help
