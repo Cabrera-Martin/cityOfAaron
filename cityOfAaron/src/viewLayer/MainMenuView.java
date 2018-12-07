@@ -9,6 +9,7 @@ package viewLayer;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import control.GameControl;
+import static viewLayer.MenuView.keyboard;
 
 
 public class MainMenuView extends MenuView {
@@ -57,7 +58,7 @@ public class MainMenuView extends MenuView {
                 displayHelpMenuView();
                 break;
             case 4: // save the game
-                displaySaveGameView();
+                saveGame();
                 break;
             case 5:
                 System.out.println("Thanks for playing!! Have a nice day");
@@ -135,10 +136,12 @@ public class MainMenuView extends MenuView {
         // Parameters: none
         // Returns: none
         // ===================================     
-        public void displaySaveGameView()
-        {
-          System.out.println("\nList of your saved games");
-          
+        
+          public void saveGame()
+        {        
+            System.out.println("Please enter the name for ypur save file here: ");
+            String filePath = keyboard.next();
+            GameControl.saveGame(filePath);                         
         }
         
 }

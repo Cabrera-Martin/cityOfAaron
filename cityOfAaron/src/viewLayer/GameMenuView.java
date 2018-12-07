@@ -87,11 +87,5 @@ public class GameMenuView extends MenuView {
             dcrv.runCropView();
             System.out.println("ManageCrops");
         }
- public void saveGame()
-        {
-        
-            System.out.println("Please enter the name of your saved game here: ");
-            String filePath = keyboard.next();
-            GameControl.saveGame(filePath);
-        }
+ 
 }
