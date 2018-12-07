@@ -5,6 +5,7 @@
  */
 package viewLayer;
 import model.*;
+import control.*;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import static viewLayer.CropView.displayCropsReportView;
@@ -85,5 +86,12 @@ public class GameMenuView extends MenuView {
             CropView dcrv = new CropView();
             dcrv.runCropView();
             System.out.println("ManageCrops");
+        }
+ public void saveGame()
+        {
+        
+            System.out.println("Please enter the name of your saved game here: ");
+            String filePath = keyboard.next();
+            GameControl.saveGame(filePath);
         }
 }

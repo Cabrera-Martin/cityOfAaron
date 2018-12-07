@@ -256,5 +256,20 @@ public class GameControl {
             System.out.println("\nThere was an error reading the saved game file");
         }
     }
+    public static void saveGame(String filePath)
+    {
+        Game theGame = null;
+        
+        try (FileOutputStream fips = new FileOutputStream(filePath))
+        {
+            ObjectOutputStream output = new ObjectOutputStream(fips);
+            output.writeObject(theGame);
+            CityOfAaron.setGame(theGame);
+        }
+        catch(Exception e)
+        {
+            System.out.println("\nThere was an error writing the saved game file");
+        }
+    }
 
 }
