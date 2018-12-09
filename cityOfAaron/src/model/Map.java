@@ -9,7 +9,8 @@ package model;
  *
  * @author Martin
  */
-public class Map {
+import java.io.Serializable;
+public class Map implements Serializable{
     //stores the number of rows
     private int rowCount;
     //stores the number of columns

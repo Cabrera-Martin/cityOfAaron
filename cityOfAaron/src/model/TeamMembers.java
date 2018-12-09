@@ -10,7 +10,8 @@ package model;
  *
  * @author Martin
  */
-public enum TeamMembers
+import java.io.Serializable;
+public enum TeamMembers implements Serializable
 {
     
    MC("Tincho","Mister"),
