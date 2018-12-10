@@ -6,7 +6,6 @@
  * Creation Date: November 27th, 2018
  */
 package exceptions;
-
 /**
  *
  * @author Martin

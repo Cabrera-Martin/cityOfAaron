@@ -9,6 +9,7 @@ import model.*;
 import cityofaaron.CityOfAaron;
 import java.util.ArrayList;
 import java.io.*;
+import exceptions.*;
 
 public class GameControl {
     
@@ -249,7 +250,8 @@ public class GameControl {
         {
             ObjectInputStream input = new ObjectInputStream(fips);
             theGame = (Game)input.readObject();
-            CityOfAaron.setGame(theGame);
+            CityOfAaron.getGame();
+            input.close();
         }
         catch(Exception e)
         {
@@ -258,13 +260,13 @@ public class GameControl {
     }
     public static void saveGame(String filePath)
     {
-        Game theGame = null;
+        Game theGame = CityOfAaron.getGame();
         
         try (FileOutputStream fips = new FileOutputStream(filePath))
         {
             ObjectOutputStream output = new ObjectOutputStream(fips);
             output.writeObject(theGame);
-            CityOfAaron.setGame(theGame);
+            output.close();
         }
         catch(Exception e)
         {

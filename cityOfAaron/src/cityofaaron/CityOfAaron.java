@@ -15,12 +15,13 @@ import viewLayer.*;
 public class CityOfAaron {
 
     private static Game theGame = null;
-public static Game getGame()
-    {
-     return theGame;
-    }
-    public static void setGame(Game _theGame){
-    theGame = _theGame;
+    public static Game getGame()
+        {
+         return theGame;
+        }
+    public static void setGame(Game _theGame)
+        {
+        theGame = _theGame;
         }   
     
     /**
@@ -30,5 +31,5 @@ public static Game getGame()
            
            MainMenuView mmv = new MainMenuView();
            mmv.displayMenu();
-    }    
+        }    
 }
