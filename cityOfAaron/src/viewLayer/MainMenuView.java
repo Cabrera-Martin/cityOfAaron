@@ -139,7 +139,7 @@ public class MainMenuView extends MenuView {
         
           public void saveGame()
         {        
-            System.out.println("Please enter the name for ypur save file here: ");
+            System.out.println("Please enter the name for your save file here: ");
             String filePath = keyboard.next();
             GameControl.saveGame(filePath);                         
         }

@@ -10,6 +10,12 @@ import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import control.GameControl;
 import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.io.IOException;
+import exceptions.*;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.*;
 
 /**
@@ -39,9 +45,9 @@ public class ListMenuView extends MenuView {
                    "**********************************\n" +
                    "*  CITY OF AARON: LIST MENU       *\n" +
                    "**********************************\n" +
-                   " 1 - List of Animals in storehouse\n" +
-                   " 2 - List the tools in storehouse\n" +
-                   " 3 - List Provisions in storehouse\n" +
+                   " 1 - Animals in storehouse\n" +
+                   " 2 - Tools in storehouse\n" +
+                   " 3 - Provisions in storehouse\n" +
                    " 4 - List team \n" +
                    " 5 - Return to Game Menu\n",
         5);
@@ -71,8 +77,22 @@ public class ListMenuView extends MenuView {
                 return;
         }
     }
-          
-        
+    
+    public void viewOrSave(){
+        boolean repeat;
+        int menuOption;
+        do {
+            repeat = false;
+            // Prompt for option.
+            System.out.print("Please enter an option:\n1) See the list of Provisions \n2) Save the List of Provisions to a file");
+            menuOption = keyboard.nextInt();
+            if(menuOption < 1 || menuOption > 2){
+                System.out.format("\\nPlease input 1 or 2.");
+                repeat = true;
+            }
+        } while(repeat);
+        }      
+    
     // Created by Jake      
     // the listTools method
     // Purpose: displays the tool list
@@ -99,20 +119,54 @@ public class ListMenuView extends MenuView {
     // Purpose: displays the list of Provisions
     // Parameters: none
     // Returns: none
-    public void listProvisions()
-        {
+    public void listProvisions() {
         Game theGame = CityOfAaron.getGame();
         ArrayList<ListItem> provisions = theGame.getprovisions();
-           
-        System.out.println("Provisions in the City of Aaron:");      
-        //iterates through the array to get the items
-        for(int i = 0; i < provisions.size();i++){
-            //gets the provision in the list with the index = i, stores it in the variable provision
-            ListItem provision = provisions.get(i);
+        System.out.println("Provisions in the City of Aaron:");
+     
+        int optionChoosen;
+        boolean repeat;
+        
+        do{
+            repeat = false;
+            // Prompt for option.
+            System.out.print("\n1) View\n2) Save Report");
+            optionChoosen = keyboard.nextInt();
+            if(optionChoosen < 1 || optionChoosen > 2){
+                System.out.format("\nError: input value must be 1 or 2.");
+                repeat = true;
+            }
+        } while(repeat);
+        String filepath = null;
+        if(optionChoosen == 2){
+            System.out.print("What is the report file path and name?");
+            filepath = keyboard.next();
+        }
+        if(optionChoosen == 1){
+            //View the a Formated List;
+            for(int i = 0; i < provisions.size();i++){        
             //displays the name and number for provision
-            System.out.println(provision.getName() + "\t" + provision.getNumber());
+            System.out.println(provisions.get(i).getName() + "\t" + provisions.get(i).getNumber());
+             }
+
+        } else{
+           //print the a Formated List
+           try(PrintWriter out = new PrintWriter(filepath)){
+               out.println("Provisions in the City of Aaron");
+                           
+               for(int i = 0; i < provisions.size();i++){        
+                //displays the name and number for provision
+                System.out.println(provisions.get(i).getName() + "\t" + provisions.get(i).getNumber());
+           }
+           }
+           catch (Exception e)
+           {
+                System.out.println("Saved unsuccessful");
+            }
+        System.out.println("Saved.");
         }
-        }
+    }
+    
     // Created by Martin      
     // the listAnimals method
     // Purpose: displays the list of Animals
@@ -133,6 +187,8 @@ public class ListMenuView extends MenuView {
             System.out.println(animal.getName() + "\t" + animal.getNumber());
             }
         }
+     
+
     public void listTeam()
         {
         System.out.println("listTeam option selected");
