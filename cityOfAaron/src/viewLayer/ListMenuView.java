@@ -13,13 +13,14 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.io.IOException;
 import exceptions.*;
+import java.io.Serializable;
 import model.*;
 
 /**
  * 
  * @author Jake Davis
  */
-public class ListMenuView extends MenuView {
+public class ListMenuView extends MenuView implements Serializable {
     private Game game = CityOfAaron.getGame();
        
     //The GameMenuView constructor
@@ -82,34 +83,25 @@ public class ListMenuView extends MenuView {
     // Returns: an int equal to 1 or 2
     public static int viewOrSave(){
         int returnValue = 0;
-        try{ 
         int optionChoosen = 0;
-        boolean repeat;
         
-               
-            do{          
-                repeat = false;
-                // Ask for option.
-                System.out.print("Please pick one of the following\n"
+        while(optionChoosen != 1 && optionChoosen !=2){
+        System.out.print("Please pick one of the following\n"
                     + "1) View the list\n"
                     + "2) Print the list\n");
-                optionChoosen = keyboard.nextInt();
-                if(optionChoosen != 1 || optionChoosen != 2){
-                    System.out.format("\nError: input value must be 1 or 2.\n");
-                    repeat = true;
-                }
+        optionChoosen = keyboard.nextInt();
+        if (optionChoosen != 1 && optionChoosen != 2)
+        {
+            System.out.print("Please pick one of the following\n");
             
-            }     
-            while(repeat);
-            if(optionChoosen == 1 || optionChoosen == 2){
-                returnValue = optionChoosen;
-            }            
         }
-        catch(Exception e){
-            System.out.format("\nError: input value must be 1 or 2.\n");
+        else {
+            returnValue = optionChoosen;
+            
         }
+        }             
         return returnValue;
-    }
+}
     
     // Created by Jake      
     // the listTools method
