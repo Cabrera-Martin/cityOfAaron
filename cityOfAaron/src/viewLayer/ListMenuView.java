@@ -85,23 +85,29 @@ public class ListMenuView extends MenuView implements Serializable {
         int returnValue = 0;
         int optionChoosen = 0;
         
-        while(optionChoosen != 1 && optionChoosen !=2){
+        while(true){
+        
         System.out.print("Please pick one of the following\n"
                     + "1) View the list\n"
-                    + "2) Print the list\n");
+                    + "2) Print the list\n"); 
+        try{
         optionChoosen = keyboard.nextInt();
-        if (optionChoosen != 1 && optionChoosen != 2)
+        }
+        catch(Exception e){
+        System.out.println("Please input only 1 or 2");
+        keyboard.next(); // clear scanner wrong input
+        continue;
+        }
+         if (optionChoosen != 1 && optionChoosen != 2)
         {
             System.out.print("Please pick one of the following\n");
-            
         }
         else {
             returnValue = optionChoosen;
-            
-        }
-        }             
+            }        
         return returnValue;
-}
+        }               
+    }
     
     // Created by Jake      
     // the listTools method
