@@ -58,7 +58,14 @@ public abstract class MenuView implements ViewInterface {
         do
         {
           System.out.format("\nPlease enter an option(1 - %d):", max);
-          inputValue = keyboard.nextInt();
+          try{
+            inputValue = keyboard.nextInt();
+        }
+        catch(Exception e){
+        System.out.println("\nWrong input, please select one of the following");
+        keyboard.next(); // clear scanner wrong input
+        continue;
+        }          
           if(inputValue < 1 || inputValue > max)
           {
               System.out.println("Error: you must select 1, 2, 3, 4 or 5");

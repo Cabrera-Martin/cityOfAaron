@@ -83,7 +83,7 @@ public class ListMenuView extends MenuView implements Serializable {
     // Returns: an int equal to 1 or 2
     public static int viewOrSave(){
         int returnValue = 0;
-        int optionChoosen = 0;
+        int optionChoosen;
         
         while(true){
         
