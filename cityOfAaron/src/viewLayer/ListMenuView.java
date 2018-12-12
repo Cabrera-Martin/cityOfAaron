@@ -13,9 +13,6 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.io.IOException;
 import exceptions.*;
-import java.io.FileNotFoundException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.*;
 
 /**
@@ -78,20 +75,32 @@ public class ListMenuView extends MenuView {
         }
     }
     
-    public void viewOrSave(){
+    // Created by Martin      
+    // the viewOrSave method
+    // Purpose: Gives the user the option to View or Save the list choosed
+    // Parameters: none
+    // Returns: an int equal to 1 or 2
+    public static int viewOrSave(){
+        int optionChoosen;
         boolean repeat;
-        int menuOption;
-        do {
+        int returnValue = 0;
+        do{
             repeat = false;
             // Prompt for option.
-            System.out.print("Please enter an option:\n1) See the list of Provisions \n2) Save the List of Provisions to a file");
-            menuOption = keyboard.nextInt();
-            if(menuOption < 1 || menuOption > 2){
-                System.out.format("\\nPlease input 1 or 2.");
+            System.out.print("Please pick one of the following\n"
+                    + "1) View the list\n"
+                    + "2) Print the list\n");
+            optionChoosen = keyboard.nextInt();
+            if(optionChoosen < 1 || optionChoosen > 2){
+                System.out.format("\nError: input value must be 1 or 2.");
                 repeat = true;
             }
-        } while(repeat);
-        }      
+           } while(repeat);
+            if(optionChoosen == 1 || optionChoosen == 2){
+            returnValue = optionChoosen;
+            }
+        return returnValue;
+    }
     
     // Created by Jake      
     // the listTools method
@@ -102,60 +111,71 @@ public class ListMenuView extends MenuView {
     public void listTools(){
         Game theGame = CityOfAaron.getGame();
         ArrayList<ListItem> tools = theGame.gettools();
-           
-        // System.out.println("listTools option selected");
-         System.out.println("Tools in the City of Aaron:");
-         
-         //algorithim to display the tools
-        for(int i = 0; i < tools.size();i++){
-            
-            ListItem tool = tools.get(i);
-            System.out.println(tool.getName() + "\t" + tool.getNumber());
-            }
-        }
+        System.out.println("Tools in the City of Aaron:");
+                 
+        int optionChoosen = viewOrSave();
+        String breadCrum = null;
         
+        
+        if(optionChoosen == 1){
+            //View the list
+            for(int i = 0; i < tools.size();i++){        
+            //displays the name and number for the list
+            System.out.println(tools.get(i).getName() + "\t" + tools.get(i).getNumber());
+             }
+        }
+            if(optionChoosen == 2){
+            System.out.print("What is the name of the report?\n");
+            breadCrum = keyboard.next();
+        //print the list and display it to the user
+           try(PrintWriter out = new PrintWriter(breadCrum)){
+               out.println("Tools in the City of Aaron");
+                           
+               for(int i = 0; i < tools.size();i++){        
+                //displays the name and number for the list
+                System.out.println(tools.get(i).getName() + "\t" + tools.get(i).getNumber());
+           }
+           }
+           catch (Exception e)
+           {
+                System.out.println("Saved unsuccessful");
+            }
+        System.out.println("Saved.");
+        }
+    }
+
+    
     // Created by Martin      
     // the listProvisions method
     // Purpose: displays the list of Provisions
     // Parameters: none
     // Returns: none
+    
     public void listProvisions() {
         Game theGame = CityOfAaron.getGame();
         ArrayList<ListItem> provisions = theGame.getprovisions();
         System.out.println("Provisions in the City of Aaron:");
      
-        int optionChoosen;
-        boolean repeat;
+        int optionChoosen = viewOrSave();
+        String breadCrum = null;
         
-        do{
-            repeat = false;
-            // Prompt for option.
-            System.out.print("\n1) View\n2) Save Report");
-            optionChoosen = keyboard.nextInt();
-            if(optionChoosen < 1 || optionChoosen > 2){
-                System.out.format("\nError: input value must be 1 or 2.");
-                repeat = true;
-            }
-        } while(repeat);
-        String filepath = null;
-        if(optionChoosen == 2){
-            System.out.print("What is the report file path and name?");
-            filepath = keyboard.next();
-        }
+        
         if(optionChoosen == 1){
-            //View the a Formated List;
+            //View the list
             for(int i = 0; i < provisions.size();i++){        
-            //displays the name and number for provision
+            //displays the name and number for the list
             System.out.println(provisions.get(i).getName() + "\t" + provisions.get(i).getNumber());
              }
-
-        } else{
-           //print the a Formated List
-           try(PrintWriter out = new PrintWriter(filepath)){
+        }
+        if(optionChoosen == 2){
+            System.out.print("What is the name of the report?\n");
+            breadCrum = keyboard.next();
+        //print the list and display it to the user
+           try(PrintWriter out = new PrintWriter(breadCrum)){
                out.println("Provisions in the City of Aaron");
                            
                for(int i = 0; i < provisions.size();i++){        
-                //displays the name and number for provision
+                //displays the name and number for the list
                 System.out.println(provisions.get(i).getName() + "\t" + provisions.get(i).getNumber());
            }
            }
@@ -166,6 +186,7 @@ public class ListMenuView extends MenuView {
         System.out.println("Saved.");
         }
     }
+    
     
     // Created by Martin      
     // the listAnimals method
@@ -178,19 +199,41 @@ public class ListMenuView extends MenuView {
         ArrayList<ListItem> animals = theGame.getanimals();
         //displays the "Animals in the City of Aaron:" string to the player
         System.out.println("Animals in the City of Aaron:"); 
-        //iterates through the array to get the items
-        for(int i = 0; i < animals.size();i++){
-            
-            //gets the animal in the list with the index = i, stores it in the variable animal
-            ListItem animal = animals.get(i);
-            //displays the name and number for animal
-            System.out.println(animal.getName() + "\t" + animal.getNumber());
-            }
+        int optionChoosen = viewOrSave();
+        String breadCrum = null;
+        
+        if(optionChoosen == 1){
+            //View the list
+            for(int i = 0; i < animals.size();i++){        
+            //displays the name and number for animals
+            System.out.println(animals.get(i).getName() + "\t" + animals.get(i).getNumber());
+             }
         }
-     
-
+        if(optionChoosen == 2){
+            System.out.print("What is the name of the report?\n");
+            breadCrum = keyboard.next();
+        //print the list and display it to the user
+           try(PrintWriter out = new PrintWriter(breadCrum)){
+               out.println("Animals in the City of Aaron");
+                           
+               for(int i = 0; i < animals.size();i++){        
+                //displays the name and number of the list
+                System.out.println(animals.get(i).getName() + "\t" + animals.get(i).getNumber());
+           }
+           }
+           catch (Exception e)
+           {
+                System.out.println("Saved unsuccessful");
+            }
+        System.out.println("Saved.");
+        }
+     }
+    
     public void listTeam()
         {
-        System.out.println("listTeam option selected");
+        System.out.println("Game created by\n "
+                + "Jake Davis\n"
+                + "and\n"
+                + "Martin Cabrera");
         }
 }
