@@ -81,24 +81,33 @@ public class ListMenuView extends MenuView {
     // Parameters: none
     // Returns: an int equal to 1 or 2
     public static int viewOrSave(){
-        int optionChoosen;
-        boolean repeat;
         int returnValue = 0;
-        do{
-            repeat = false;
-            // Prompt for option.
-            System.out.print("Please pick one of the following\n"
+        try{ 
+        int optionChoosen = 0;
+        boolean repeat;
+        
+               
+            do{          
+                repeat = false;
+                // Ask for option.
+                System.out.print("Please pick one of the following\n"
                     + "1) View the list\n"
                     + "2) Print the list\n");
-            optionChoosen = keyboard.nextInt();
-            if(optionChoosen < 1 || optionChoosen > 2){
-                System.out.format("\nError: input value must be 1 or 2.");
-                repeat = true;
-            }
-           } while(repeat);
+                optionChoosen = keyboard.nextInt();
+                if(optionChoosen != 1 || optionChoosen != 2){
+                    System.out.format("\nError: input value must be 1 or 2.\n");
+                    repeat = true;
+                }
+            
+            }     
+            while(repeat);
             if(optionChoosen == 1 || optionChoosen == 2){
-            returnValue = optionChoosen;
-            }
+                returnValue = optionChoosen;
+            }            
+        }
+        catch(Exception e){
+            System.out.format("\nError: input value must be 1 or 2.\n");
+        }
         return returnValue;
     }
     
@@ -223,9 +232,9 @@ public class ListMenuView extends MenuView {
            }
            catch (Exception e)
            {
-                System.out.println("Saved unsuccessful");
+                System.out.println("Saved unsuccessful\n");
             }
-        System.out.println("Saved.");
+        System.out.println("Saved.\n");
         }
      }
     
