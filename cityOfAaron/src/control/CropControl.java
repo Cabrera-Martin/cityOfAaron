@@ -11,20 +11,29 @@ import exceptions.*;
 
 public class CropControl 
 {
-     // constants
+     // constants for landcost
      private static final int LAND_BASE = 17;
      private static final int LAND_RANGE = 10;
-
+     //constant for cropYield
+     private static final int CROP_BASE = 2;
+     private static final int CROP_RANGE = 3;
     // random number generator
-    private static Random random = new Random();
+    private static Random randomLand = new Random();
+    private static Random randomCrop = new Random();
     // calcLandCost() method
     // Purpose: Calculate a random land price between 17 and 26 bushels/acre
     // Parameters: none
     // Returns: the land cost
     public static int calcLandCost()
     {
-        int landCost = random.nextInt(LAND_RANGE) + LAND_BASE;  
+        int landCost = randomLand.nextInt(LAND_RANGE) + LAND_BASE;  
         return landCost;            
+    }
+    
+    public static int calcCropYield()
+    {
+        int cropYields = randomCrop.nextInt(CROP_RANGE) + CROP_BASE;  
+        return cropYields;            
     }
 
 //The buyLand method
@@ -155,5 +164,21 @@ public class CropControl
         if(percentageToPay < 0 || percentageToPay > 100)
             return -1;
         else return percentageToPay;
+    }
+    
+    /**
+     *The cropYield method
+     * Purpose: To calculate the Crop Yield per acre planted and add those crops to the total bushels owned.
+     * @param cropYields
+     * @param cropData
+     */
+    public static void cropYield(int cropYields, CropData cropData)
+    {
+    System.out.println("This year Crop Yield per acre was: " + cropYields + " bushels of wheat");
+        //wheatInStore = wheatInStore + crop yield * acresPlanted
+        int wheat = cropData.getwheatInStore();
+        int acres = cropData.getacresPlanted();
+        wheat += (cropYields*acres);
+        cropData.setwheatInStore(wheat);
     }
 }

@@ -43,15 +43,16 @@ public class GameControl {
         // save a reference to it in the Game object
         CropData cropData = new CropData();
         
-        cropData.setyear(0);
-        cropData.setpopulation(100);
-        cropData.setnewPeople(5);
-        cropData.setcropYield(3);
+        cropData.setyear(1);
         cropData.setnumberWhoDied(0);
-        cropData.setwheatInStore(2700);
+        cropData.setnewPeople(5);
+        cropData.setpopulation(100);
         cropData.setacresOwned(1000);
-        cropData.setacresPlanted(1000);
+        cropData.setcropYield(3);
         cropData.setharvest(3000);
+        cropData.setwheatInStore(2700);
+        
+        cropData.setacresPlanted(1000);        
         cropData.setacresPlanted(1000); 
         game.setcropData(cropData);       
        }      
