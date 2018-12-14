@@ -65,22 +65,36 @@ public class GameMenuView extends MenuView {
 }
  public void viewMap()
         {
-        // Display the Map.
-         // The displayMap method
-    // Purpose: displays the goals of the game
+    // Display the Map.
+    // The displayMap method.
+    // Purpose: displays the map for the user.
     // Parameters: none
     // Returns: none
+    // Author: Jake Davis
     // ===================================   
    
     {
         System.out.println("\n"
                 + "             ***Town MAP*** \n\n"
                 + "       0     1     2     3     4   \n"
-                + "  0 |  H  | !!! | !!! | !!! | ~~~ |\n"
+                + "  0 | /H/ | !!! | !!! | !!! | ~~~ |\n"
                 + "  1 | /// | !!! | !!! | !!! | ~~~ |\n"
                 + "  2 |  B  |  L  | #!!#| ^^^ | ^^^ |\n"
                 + "  3 | *** | *-* | #!!#| ^^^ | ^^^ |\n"
-                + "  4 | /-/ |  AB | ^!^ | ^^^ | ^^^ |\n\n");
+                + "  4 | /-/ |  AB | ^!^ | ^^^ | ^^^ |\n\n"
+                + "  Key:\n"
+                + "   /H/ - house\n"
+                + "   !!! - farmland\n"
+                + "   ~~~ - River\n"
+                + "   ^^^ - forest\n"
+                + "  #!!# - pastures\n"
+                + "   ^!^ - temple\n"
+                + "    L  - lake\n"
+                + "   *-* - toolshed\n"
+                + "   *** - garden\n"
+                + "   /// - chaple\n"
+                + "   /-/ - chicken pin");
+
                 
     }
                 
