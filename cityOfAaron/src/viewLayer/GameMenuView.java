@@ -66,7 +66,26 @@ public class GameMenuView extends MenuView {
  public void viewMap()
         {
         // Display the Map.
-            System.out.println("Here is your MAP");
+         // The displayMap method
+    // Purpose: displays the goals of the game
+    // Parameters: none
+    // Returns: none
+    // ===================================   
+   
+    {
+        System.out.println("\n"
+                + "             ***Town MAP*** \n\n"
+                + "       0     1     2     3     4   \n"
+                + "  0 |  H  | !!! | !!! | !!! | ~~~ |\n"
+                + "  1 | /// | !!! | !!! | !!! | ~~~ |\n"
+                + "  2 |  B  |  L  | #!!#| ^^^ | ^^^ |\n"
+                + "  3 | *** | *-* | #!!#| ^^^ | ^^^ |\n"
+                + "  4 | /-/ |  AB | ^!^ | ^^^ | ^^^ |\n\n");
+                
+    }
+                
+
+
         }
  public void viewList()
         {

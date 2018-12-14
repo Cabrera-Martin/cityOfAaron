@@ -125,7 +125,7 @@ public class GameControl {
             // set a forest location
             loc = new Location();
             loc.setDescription(forest);
-            loc.setSymbol("^^^^^^^");
+            loc.setSymbol("^^^");
             theMap.setLocation(2, 3, loc);
             theMap.setLocation(2, 4, loc);
             theMap.setLocation(3, 3, loc);
@@ -172,7 +172,7 @@ public class GameControl {
             // set a garden location
             loc = new Location();
             loc.setDescription(garden);
-            loc.setSymbol("**");
+            loc.setSymbol("***");
             theMap.setLocation(3, 0, loc);
             
             // define the string for a chicken pin location
