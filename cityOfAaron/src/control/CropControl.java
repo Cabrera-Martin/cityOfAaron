@@ -17,9 +17,13 @@ public class CropControl
      //constant for cropYield
      private static final int CROP_BASE = 2;
      private static final int CROP_RANGE = 3;
+     //constant for cropYield
+     private static final int POP_BASE = 1;
+     private static final int POP_RANGE = 4;
     // random number generator
     private static Random randomLand = new Random();
     private static Random randomCrop = new Random();
+    private static Random randomPop = new Random();
     // calcLandCost() method
     // Purpose: Calculate a random land price between 17 and 26 bushels/acre
     // Parameters: none
@@ -29,11 +33,24 @@ public class CropControl
         int landCost = randomLand.nextInt(LAND_RANGE) + LAND_BASE;  
         return landCost;            
     }
-    
+    // calcCropYield() method
+    // Purpose: Calculate a random crop yield between 2 and 5 bushels/acre
+    // Parameters: none
+    // Returns: the crop yield per acre
     public static int calcCropYield()
     {
         int cropYields = randomCrop.nextInt(CROP_RANGE) + CROP_BASE;  
         return cropYields;            
+    }
+    // calcPopGrowth() method
+    // Purpose: Generate a random number between 1 and 5 to use to calculate the population growth
+    // Parameters: none
+    // Returns: the pop growth number
+    public static int calcPopGrowth()
+    {
+        int popGrowth = (randomPop.nextInt(CROP_RANGE) + CROP_BASE); 
+        
+        return popGrowth;            
     }
 
 //The buyLand method
@@ -108,7 +125,7 @@ public class CropControl
     //wheatInStore = wheatInStore - wheatForFood
         int wheat = cropData.getwheatInStore();
         wheat -= wheatForFood;
-        cropData.setwheatInStore(wheatInStore);
+        cropData.setwheatInStore(wheat);
         cropData.setwheatForFood(wheatForFood);
     }
 // The plantCrop method
@@ -125,23 +142,27 @@ public class CropControl
   
     public static void plantCrops(int acresToPlant, CropData cropData)throws CropException
     {
-    //if acresToPlant < 0, return -1
-        if(acresToPlant < 0)
+        //if acresToPlant < 0, return -1
+        if(acresToPlant < 0){
             throw new CropException("There was a problem, please enter another value.");
         //if acresToPlant > acresOwned, return -1        
+        }
         int owned = cropData.getacresOwned();
-        if(acresToPlant > owned)
-             throw new CropException("There was a problem, please enter another value.");
+        if(acresToPlant > owned){
+             throw new CropException("There was a problem, please enter another value.");        
+        }
         //if acresToPlant/2 > bushelInStorage, return -1
         int bushel = cropData.getwheatInStore();
-        if(acresToPlant/2 > bushel)
+        if(acresToPlant/2 > bushel){
              throw new CropException("There are not enough bushels of wheat in storage.");
-        
+        }
         //if acresToPlant/10 > population, return -1
         int pop = cropData.getpopulation();
-        if(acresToPlant/10 > pop)
+        if(acresToPlant/10 > pop){
              throw new CropException("There are not enough people to plant wheat.");
         //acresPlanted = acresPlanted + acresToPlant
+        }
+        else{        
         int planted = cropData.getacresPlanted();
         planted+= (acresToPlant);
         cropData.setacresPlanted(planted);
@@ -150,23 +171,14 @@ public class CropControl
         int wheat = cropData.getwheatInStore();
         wheat-= (acresToPlant/2);
         cropData.setwheatInStore(wheat);
+        
          //return acresPlanted and wheatInStore
       System.out.println("Acres Planted = " + planted);
       System.out.println("What in Store = " + wheat);
-    }
-    //The seOffering method
-    // Purpose: To set the percentage of offering the player wants to allocate
-    // @param percentage to pay
-    //@ return the percentage to pay or an error
-    public static int setOffering(int percentageToPay)
-    {
-//if percentageToPay < 0 and > 1, return -1
-        if(percentageToPay < 0 || percentageToPay > 100)
-            return -1;
-        else return percentageToPay;
-    }
-    
+       }
+    }   
     /**
+     *  Created by Martin
      *The cropYield method
      * Purpose: To calculate the Crop Yield per acre planted and add those crops to the total bushels owned.
      * @param cropYields
@@ -174,11 +186,65 @@ public class CropControl
      */
     public static void cropYield(int cropYields, CropData cropData)
     {
-    System.out.println("This year Crop Yield per acre was: " + cropYields + " bushels of wheat");
+        System.out.println("This year Crop Yield per acre was: " + cropYields + " bushels of wheat");
         //wheatInStore = wheatInStore + crop yield * acresPlanted
         int wheat = cropData.getwheatInStore();
         int acres = cropData.getacresPlanted();
         wheat += (cropYields*acres);
         cropData.setwheatInStore(wheat);
     }
+    /**
+     *  Created by Martin
+     *The growPopulation method
+     * Purpose: To calculate the Population Growth.
+     * @param calcPopGrowth
+     * @param cropData
+     */ 
+    public static void growPopulation(int calcPopGrowth, CropData cropData)
+    {
+        int pop = cropData.getpopulation();
+        int newPeople = pop*(calcPopGrowth/100); 
+        int newPopulation = pop + newPeople;
+        cropData.setpopulation(newPopulation);
+        System.out.println("This year the population grew by: " + calcPopGrowth + "%.");
+        System.out.println("The total population now is: " + newPopulation);
+    }
+    
+    //The seOffering method
+    // Purpose: To set the percentage of offering the player wants to allocate
+    // @param percentage to pay
+    //@ return the percentage to pay or an error    
+    public static int setOffering(int percentageToPay)
+    {
+    //if percentageToPay < 0 and > 1, return -1
+        if(percentageToPay < 0 || percentageToPay > 100)
+            return -1;
+        else return percentageToPay;
+    }
+    
+    /**
+     * Created by Martin
+     *The calcStarved method
+     * Purpose: To calculate the People who starved.
+     * @param cropData
+     */
+    public static void calcStarved(CropData cropData)
+    {
+        //peopleStarved = (wheatForFood /20)
+        int peopleFeed = cropData.getwheatForFood()/20;
+        int pop = cropData.getpopulation();
+        int peopleStarved = pop - peopleFeed;
+        
+        if(peopleFeed < pop){
+            System.out.println("This year " + peopleStarved + " people died of starvation");
+            pop -= peopleStarved;
+            cropData.setpopulation(pop);            
+        }
+        else{
+            System.out.println("This year no people died of starvation");
+        }
+    }
+            
+      
+    
 }

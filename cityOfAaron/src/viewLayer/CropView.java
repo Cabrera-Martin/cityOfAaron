@@ -159,7 +159,7 @@ public class CropView {
             }
         catch (CropException e)
         {
-            System.out.println("I am sorry master, I connot do this.");
+            System.out.println("I am sorry master, I cannot do this.");
             System.out.println(e.getMessage());
             paramsNotOkay = true;
         }
@@ -171,6 +171,38 @@ public class CropView {
         // output how much wheat is left in Store
         System.out.format("You have %d of wheat left in Storage.\n",cropData.getwheatInStore());
     }
+    // The harvestCropsView method
+    // Purpose: 
+    // Parameters: none
+    // Returns: none
+    public static void payOfferingView(){
+        int yields = CropControl.calcCropYield();
+        CropControl.cropYield(yields,cropData);
+        }
+    // The harvestCropsView method
+    // Purpose: 
+    // Parameters: none
+    // Returns: none
+    public static void harvestCropsView(){
+        int yields = CropControl.calcCropYield();
+        CropControl.cropYield(yields,cropData);
+        }
+    // The harvestCropsView method
+    // Purpose: 
+    // Parameters: none
+    // Returns: none
+        public static void growPopulationView(){
+        int growth = CropControl.calcPopGrowth();
+        CropControl.cropYield(growth,cropData);
+        }
+    // The harvestCropsView method
+    // Purpose: 
+    // Parameters: none
+    // Returns: none
+        public static void calcStarvedView(){
+        CropControl.calcStarved(cropData);
+        }    
+    
     // The runCropView method()
     // Purpose: runs the methods to manage the crops game
     // Parameters: none
@@ -185,9 +217,16 @@ public class CropView {
         // call the feedPeopleView( ) method
         feedPeopleView();
         // call the plantCropsView( ) method
-        plantCropsView();
+        plantCropsView();        
+        // call the harvestCropsView( ) method
+        payOfferingView();
+        // call the harvestCropsView( ) method
+        harvestCropsView();
+        // call the growPopulationView( ) method
+        growPopulationView();
+        // call the calcStarvedView( ) method
+        calcStarvedView();
         // call the displayCropsReportView( ) method
-        displayCropsReportView();
-        
+        displayCropsReportView();        
     }
 }

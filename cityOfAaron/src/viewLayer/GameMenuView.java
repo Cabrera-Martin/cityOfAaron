@@ -94,7 +94,6 @@ public class GameMenuView extends MenuView {
                 + "   *** - garden\n"
                 + "   /// - chaple\n"
                 + "   /-/ - chicken pin");
-
                 
     }
                 
