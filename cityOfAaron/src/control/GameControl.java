@@ -51,9 +51,7 @@ public class GameControl {
         cropData.setcropYield(3);
         cropData.setharvest(3000);
         cropData.setwheatInStore(2700);
-        
-        cropData.setacresPlanted(1000);        
-        cropData.setacresPlanted(1000); 
+        cropData.setacresPlanted(1000);
         game.setcropData(cropData);       
        }      
         // The createMap method

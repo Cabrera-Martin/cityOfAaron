@@ -46,9 +46,9 @@ public class CropControl
     // Purpose: Generate a random number between 1 and 5 to use to calculate the population growth
     // Parameters: none
     // Returns: the pop growth number
-    public static int calcPopGrowth()
+    public static float calcPopGrowth()
     {
-        int popGrowth = (randomPop.nextInt(CROP_RANGE) + CROP_BASE); 
+        float popGrowth = (randomPop.nextInt(CROP_RANGE) + CROP_BASE); 
         
         return popGrowth;            
     }
@@ -162,8 +162,9 @@ public class CropControl
              throw new CropException("There are not enough people to plant wheat.");
         //acresPlanted = acresPlanted + acresToPlant
         }
-        else{        
+        else{
         int planted = cropData.getacresPlanted();
+        
         planted+= (acresToPlant);
         cropData.setacresPlanted(planted);
         
@@ -171,57 +172,25 @@ public class CropControl
         int wheat = cropData.getwheatInStore();
         wheat-= (acresToPlant/2);
         cropData.setwheatInStore(wheat);
-        
-         //return acresPlanted and wheatInStore
-      System.out.println("Acres Planted = " + planted);
-      System.out.println("What in Store = " + wheat);
+       
        }
     }   
     /**
      *  Created by Martin
      *The cropYield method
      * Purpose: To calculate the Crop Yield per acre planted and add those crops to the total bushels owned.
-     * @param cropYields
+     * @param yieldsOfCrop
      * @param cropData
      */
-    public static void cropYield(int cropYields, CropData cropData)
+    public static void cropYield(int yieldsOfCrop, CropData cropData)
     {
-        System.out.println("This year Crop Yield per acre was: " + cropYields + " bushels of wheat");
+        System.out.println("This year Crop Yield per acre was: " + yieldsOfCrop + " bushels of wheat");
         //wheatInStore = wheatInStore + crop yield * acresPlanted
         int wheat = cropData.getwheatInStore();
-        int acres = cropData.getacresPlanted();
-        wheat += (cropYields*acres);
+        int acresPlant = cropData.getacresPlanted();
+        wheat += (yieldsOfCrop*acresPlant);
         cropData.setwheatInStore(wheat);
-    }
-    /**
-     *  Created by Martin
-     *The growPopulation method
-     * Purpose: To calculate the Population Growth.
-     * @param calcPopGrowth
-     * @param cropData
-     */ 
-    public static void growPopulation(int calcPopGrowth, CropData cropData)
-    {
-        int pop = cropData.getpopulation();
-        int newPeople = pop*(calcPopGrowth/100); 
-        int newPopulation = pop + newPeople;
-        cropData.setpopulation(newPopulation);
-        System.out.println("This year the population grew by: " + calcPopGrowth + "%.");
-        System.out.println("The total population now is: " + newPopulation);
-    }
-    
-    //The seOffering method
-    // Purpose: To set the percentage of offering the player wants to allocate
-    // @param percentage to pay
-    //@ return the percentage to pay or an error    
-    public static int setOffering(int percentageToPay)
-    {
-    //if percentageToPay < 0 and > 1, return -1
-        if(percentageToPay < 0 || percentageToPay > 100)
-            return -1;
-        else return percentageToPay;
-    }
-    
+    }    
     /**
      * Created by Martin
      *The calcStarved method
@@ -230,20 +199,52 @@ public class CropControl
      */
     public static void calcStarved(CropData cropData)
     {
-        //peopleStarved = (wheatForFood /20)
-        int peopleFeed = cropData.getwheatForFood()/20;
-        int pop = cropData.getpopulation();
-        int peopleStarved = pop - peopleFeed;
+        //peopleFeed = (wheatForFood /20)
+        int peopleFeed = cropData.getwheatForFood()/20; //99
+        int pop2 = cropData.getpopulation(); //100
+        int peopleStarved = pop2 - peopleFeed; // 1
         
-        if(peopleFeed < pop){
+        if(peopleFeed < pop2){
             System.out.println("This year " + peopleStarved + " people died of starvation");
-            pop -= peopleStarved;
-            cropData.setpopulation(pop);            
+            pop2 -= peopleStarved;
+            cropData.setnumberWhoDied(peopleStarved);
+            cropData.setpopulation(pop2);            
         }
         else{
             System.out.println("This year no people died of starvation");
         }
     }
+    /**
+     *  Created by Martin
+     *The growPopulation method
+     * Purpose: To calculate the Population Growth.
+     * @param growthPer
+     * @param cropData
+     */ 
+    
+    public static void growPopulation(float growthPer, CropData cropData)
+    {
+        int pop1 = cropData.getpopulation();  //100
+        int newPip = pop1 *((int) growthPer);  //100*(3/100)= 3
+        cropData.setnewPeople(newPip); // 3
+        pop1 += newPip; //100+3 =103
+        cropData.setpopulation(pop1); // 103
+        System.out.println("This year the population grew by: " + growthPer + "%."); //3%
+        System.out.println("The total population now is: " + pop1); // 103
+    }
+    
+
+    //The seOffering method
+    // Purpose: To set the percentage of offering the player wants to allocate
+    // @param percentage to pay
+    //@ return the percentage to pay or an error    
+   // public static int setOffering(int percentageToPay)
+    //{
+    //if percentageToPay < 0 and > 1, return -1
+     //   if(percentageToPay < 0 || percentageToPay > 100)
+       //     return -1;
+       // else return percentageToPay;
+    //}
             
       
     

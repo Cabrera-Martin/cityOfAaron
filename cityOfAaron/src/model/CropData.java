@@ -28,11 +28,11 @@ public class CropData implements Serializable {
     public CropData(){
     }
 
-        public int getyear(){
-            return year;
+    public int getyear(){
+        return year;
                             }
-        public void setyear(int _year) {
-            year= _year;
+    public void setyear(int _year) {
+        year= _year;
                             }
     
     public int getpopulation(){

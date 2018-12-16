@@ -175,15 +175,16 @@ public class CropView {
     // Purpose: 
     // Parameters: none
     // Returns: none
-    public static void payOfferingView(){
-        int yields = CropControl.calcCropYield();
-        CropControl.cropYield(yields,cropData);
-        }
+  //  public static void payOfferingView(){
+    //    int yields = CropControl.calcCropYield();
+      //  CropControl.cropYield(yields,cropData);
+       // }
+    
     // The harvestCropsView method
     // Purpose: 
     // Parameters: none
     // Returns: none
-    public static void harvestCropsView(){
+        public static void harvestCropsView(){
         int yields = CropControl.calcCropYield();
         CropControl.cropYield(yields,cropData);
         }
@@ -192,8 +193,8 @@ public class CropView {
     // Parameters: none
     // Returns: none
         public static void growPopulationView(){
-        int growth = CropControl.calcPopGrowth();
-        CropControl.cropYield(growth,cropData);
+        float growth = CropControl.calcPopGrowth();
+        CropControl.growPopulation(growth,cropData);
         }
     // The harvestCropsView method
     // Purpose: 
@@ -219,7 +220,7 @@ public class CropView {
         // call the plantCropsView( ) method
         plantCropsView();        
         // call the harvestCropsView( ) method
-        payOfferingView();
+    //    payOfferingView();
         // call the harvestCropsView( ) method
         harvestCropsView();
         // call the growPopulationView( ) method
